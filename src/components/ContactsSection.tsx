@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { MapPin, Phone, Clock, Navigation } from 'lucide-react';
+import './ContactsSection.scss';
 
 const ContactsSection = () => {
   const openMaps = () => {
@@ -8,7 +9,7 @@ const ContactsSection = () => {
   };
 
   return (
-    <section className='py-20 bg-white'>
+    <section className='py-20 bg-white' id='contacts'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='text-center mb-16'>
           <h2 className='text-4xl md:text-5xl font-bold text-text-dark mb-6'>
@@ -22,21 +23,10 @@ const ContactsSection = () => {
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-12'>
           {/* Map */}
           <div className='order-2 lg:order-1'>
-            <div className='bg-surface-light rounded-xl p-4 h-96 flex items-center justify-center'>
+            <div className='bg-surface-light rounded-xl p-4 h-96 flex items-center justify-center widthNew'>
               <div className='text-center'>
-                <MapPin className='h-16 w-16 text-brand-blue mx-auto mb-4' />
-                <h3 className='text-xl font-bold text-text-dark mb-2'>Інтерактивна карта</h3>
-                <p className='text-text-light mb-4'>
-                  ChekCar Автосервіс
-                  <br />
-                  проспект Перемоги, 123
-                  <br />
-                  Київ, Україна
-                </p>
-                <Button variant='hero' onClick={openMaps}>
-                  <Navigation className='h-4 w-4 mr-2' />
-                  Прокласти маршрут
-                </Button>
+                <img className='imagesPc' src='/assets/map_dsctp.jpg' />
+                <img className='imagesPhone' src='/assets/map_mob.jpg' />
               </div>
             </div>
           </div>
@@ -108,6 +98,16 @@ const ContactsSection = () => {
               </CardContent>
             </Card>
           </div>
+        </div>
+        <div className='w-full aspect-video mx-auto videoNew'>
+          <video
+            className='w-full h-full rounded-lg object-cover'
+            controls
+            preload='metadata'
+            poster='assets/сто.jpg'>
+            <source src='assets/stoMini.mp4' type='video/mp4' />
+            Ваш браузер не поддерживает видео.
+          </video>
         </div>
       </div>
     </section>

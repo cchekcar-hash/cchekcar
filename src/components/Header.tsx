@@ -12,6 +12,38 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
+  // Обработчик для клавиатурного вызова (fallback на tel:)
+  const handlePhoneKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      window.location.href = 'tel:+380936430070';
+    }
+  };
+
+  // Функция для открытия Binotel GetCall формы
+  const openBinotelForm = () => {
+    console.log('Попытка открыть Binotel GetCall...'); // Для отладки
+
+    setTimeout(() => {
+      const widgetHash = '4uox021xc4vx3s6rj7oe'; // Твой hash из HTML
+      const binotelWidget = (window as any).BinotelGetCall?.[widgetHash];
+
+      console.log('BinotelGetCall:', (window as any).BinotelGetCall); // Лог объекта
+      console.log('Widget:', binotelWidget); // Лог виджета
+
+      if (binotelWidget && typeof binotelWidget.openPassiveForm === 'function') {
+        // Открываем форму с кастомным заголовком и описанием (опционально)
+        binotelWidget.openPassiveForm(
+          'Ми передзвонимо за 30 секунд!',
+          'Залиште номер для запису на сервіс',
+        );
+        console.log('Форма Binotel відкрита!');
+      } else {
+        console.warn('Binotel виджет не знайдено, fallback на tel:');
+        // window.location.href = 'tel:+380936430070';
+      }
+    }, 10000); // Небольшая задержка на инициализацию
+  };
+
   return (
     <header className='fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border shadow-soft'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
@@ -24,31 +56,37 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className='hidden md:flex items-center space-x-8'>
             <button
+              type='button'
               onClick={() => scrollToSection('hero')}
               className='text-text-dark hover:text-brand-blue transition-colors'>
               Головна
             </button>
             <button
+              type='button'
               onClick={() => scrollToSection('services')}
               className='text-text-dark hover:text-brand-blue transition-colors'>
               Послуги
             </button>
             <button
+              type='button'
               onClick={() => scrollToSection('diagnostics')}
               className='text-text-dark hover:text-brand-blue transition-colors'>
               Діагностика
             </button>
             <button
+              type='button'
               onClick={() => scrollToSection('testimonials')}
               className='text-text-dark hover:text-brand-blue transition-colors'>
               Відгуки
             </button>
             <button
+              type='button'
               onClick={() => scrollToSection('booking')}
               className='text-text-dark hover:text-brand-blue transition-colors'>
               Запис
             </button>
             <button
+              type='button'
               onClick={() => scrollToSection('contacts')}
               className='text-text-dark hover:text-brand-blue transition-colors'>
               Контакти
@@ -57,9 +95,20 @@ const Header = () => {
 
           {/* Contact Info & CTA */}
           <div className='hidden lg:flex items-center space-x-4 phoneBlockNew'>
-            <div className='flex items-center text-sm text-text-light'>
-              <Phone className='h-4 w-4 mr-1 iconNew' />
-              <a href='tel:+380936430070'>+38 (093) 643-00-70</a>
+            <div
+              className='flex items-center text-sm text-text-light'
+              role='button'
+              tabIndex={0}
+              onKeyDown={handlePhoneKeyDown}>
+              <Phone className='h-4 w-4 mr-1 iconNew' aria-hidden='true' />
+              <button
+                type='button'
+                onClick={openBinotelForm}
+                className='bingc-action-open-passive-form binotel-getcall cursor-pointer hover:text-brand-blue transition-colors select-none border-none bg-transparent p-0 text-inherit text-sm text-text-light'
+                data-phone='+380936430070'
+                aria-label='Замовити дзвінок: +38 (093) 643-00-70'>
+                +38 (093) 643-00-70
+              </button>
             </div>
             <Button
               onClick={() => scrollToSection('booking')}
@@ -69,7 +118,11 @@ const Header = () => {
           </div>
 
           {/* Mobile menu button */}
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className='md:hidden p-2 burgerBlock'>
+          <button
+            type='button'
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className='md:hidden p-2 burgerBlock'
+            aria-label='Меню'>
             {isMenuOpen ? (
               <X className='h-6 w-6 text-text-dark' />
             ) : (
@@ -83,39 +136,56 @@ const Header = () => {
           <div className='md:hidden py-4 border-t border-border'>
             <nav className='flex flex-col space-y-4'>
               <button
+                type='button'
                 onClick={() => scrollToSection('hero')}
                 className='text-left text-text-dark hover:text-brand-blue transition-colors'>
                 Головна
               </button>
               <button
+                type='button'
                 onClick={() => scrollToSection('services')}
                 className='text-left text-text-dark hover:text-brand-blue transition-colors'>
                 Послуги
               </button>
               <button
+                type='button'
                 onClick={() => scrollToSection('diagnostics')}
                 className='text-left text-text-dark hover:text-brand-blue transition-colors'>
                 Діагностика
               </button>
               <button
+                type='button'
                 onClick={() => scrollToSection('testimonials')}
                 className='text-left text-text-dark hover:text-brand-blue transition-colors'>
                 Відгуки
               </button>
               <button
+                type='button'
                 onClick={() => scrollToSection('booking')}
                 className='text-left text-text-dark hover:text-brand-blue transition-colors'>
                 Запис
               </button>
               <button
+                type='button'
                 onClick={() => scrollToSection('contacts')}
                 className='text-left text-text-dark hover:text-brand-blue transition-colors'>
                 Контакти
               </button>
               <div className='pt-4 border-t border-border'>
-                <div className='flex items-center text-sm text-text-light mb-3'>
-                  <Phone className='h-4 w-4 mr-1' />
-                  <a href='tel:+380936430070'>+38 (093) 643-00-70</a>
+                <div
+                  className='flex items-center text-sm text-text-light mb-3'
+                  role='button'
+                  tabIndex={0}
+                  onKeyDown={handlePhoneKeyDown}>
+                  <Phone className='h-4 w-4 mr-1' aria-hidden='true' />
+                  <button
+                    type='button'
+                    onClick={openBinotelForm}
+                    className='bingc-action-open-passive-form binotel-getcall cursor-pointer hover:text-brand-blue transition-colors select-none border-none bg-transparent p-0 text-inherit text-sm text-text-light'
+                    data-phone='+380936430070'
+                    aria-label='Замовити дзвінок: +38 (093) 643-00-70'>
+                    +38 (093) 643-00-70
+                  </button>
                 </div>
                 <Button
                   onClick={() => scrollToSection('booking')}
@@ -127,7 +197,9 @@ const Header = () => {
           </div>
         )}
       </div>
-      <DiscountBlock right='right' />
+      <div onClick={() => scrollToSection('booking')}>
+        <DiscountBlock right='right' />
+      </div>
     </header>
   );
 };

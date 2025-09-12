@@ -1,0 +1,60 @@
+.widthNew {
+  padding: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.imagesPhone {
+  display: none;
+}
+
+.imagesPc {
+  display: flex;
+  width: 100%;
+}
+
+.videoNew {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  margin-top: 2vw;
+}
+
+@media (max-width: 1024px) {
+  .widthNew {
+    padding: 0;
+    width: 100% !important;
+    height: 100% !important;
+
+    & .text-center {
+      width: 90%;
+    }
+  }
+
+  .videoNew {
+    width: 90% !important;
+    margin-top: 5vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .widthNew {
+    & .text-center {
+      width: 100%;
+    }
+  }
+
+  .imagesPhone {
+    display: flex;
+    width: 100%;
+  }
+
+  .imagesPc {
+    display: none;
+  }
+
+  .videoNew {
+    width: 100% !important;
+    margin-top: 5vw;
+  }
+}
