@@ -41,6 +41,7 @@ const BookingSection = () => {
     service: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
 
   const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -49,22 +50,20 @@ const BookingSection = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSuccessMessage(''); // Clear previous success message
 
     try {
       const message = `
       Новий запис на сервіс:
-      Ім'я: ${formData.name}
-      Телефон: ${formData.phone}
-      Автомобіль: ${formData.car || 'Не вказано'}
-      Послуга: ${formData.service || 'Не вказано'}
+
+      👤 Ім'я: ${formData.name}
+      📱 Телефон: ${formData.phone}
+      🚗 Автомобіль: ${formData.car || 'Не вказано'}
+      ⚙️ Послуга: ${formData.service || 'Не вказано'}
     `;
 
       const TELEGRAM_BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
       const TELEGRAM_CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID;
-
-      // console.log('Bot Token:', TELEGRAM_BOT_TOKEN); // Debug
-      // console.log('Chat ID:', TELEGRAM_CHAT_ID); // Debug
-      // console.log('Environment Variables:', import.meta.env); // Debug
 
       if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
         throw new Error('Telegram Bot Token или Chat ID не настроены в .env');
@@ -78,9 +77,7 @@ const BookingSection = () => {
         parse_mode: 'Markdown',
       });
 
-      // console.log('Telegram API Response:', response.data); // Debug
-
-      alert("Дякуємо за запис! Наш менеджер зв'яжеться з вами найближчим часом.");
+      setSuccessMessage("Дякуємо, що відправили заявку! Ми зв'яжемося з вами найближчим часом.");
       setFormData({ name: '', phone: '', car: '', service: '' });
     } catch (error) {
       console.error('Помилка відправки даних:', error);
@@ -178,14 +175,19 @@ const BookingSection = () => {
                   </Select>
                 </div>
 
-                <Button
-                  type='submit'
-                  variant='hero'
-                  size='lg'
-                  className='w-full text-lg py-6'
-                  disabled={isSubmitting}>
-                  {isSubmitting ? 'Відправка...' : 'Записатися'}
-                </Button>
+                <div className='space-y-4'>
+                  <Button
+                    type='submit'
+                    variant='hero'
+                    size='lg'
+                    className='w-full text-lg py-6'
+                    disabled={isSubmitting}>
+                    {isSubmitting ? 'Відправка...' : 'Записатися'}
+                  </Button>
+                  {successMessage && (
+                    <p className='text-left text-brand-blue text-lg'>{successMessage}</p>
+                  )}
+                </div>
               </form>
 
               <div className='mt-8 p-6 bg-surface-light rounded-xl'>
