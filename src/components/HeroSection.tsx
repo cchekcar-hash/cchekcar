@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import heroImage from '@/assets/hero-bg.jpg';
 import './HeroSection.scss';
+import { Clock, Shield, Sparkles } from 'lucide-react';
 
 const HeroSection = () => {
   return (
@@ -21,7 +22,22 @@ const HeroSection = () => {
             <span className='text-brand-blue'>ChekCar</span> – ваш надійний автосервіс у Києві
           </h1>
 
-          <p className='text-xl md:text-2xl text-text-light mb-8 max-w-4xl mx-auto'>
+          <ul className='listNew'>
+            <li>
+              <Sparkles className='iconlist' />
+              15 000+ позитивних відгуків
+            </li>
+            <li>
+              <Clock className='iconlist' />
+              Витрачайте годину часу, а не день
+            </li>
+            <li>
+              <Shield className='iconlist' />
+              Гарантія 12 місяців / 10 000 км
+            </li>
+          </ul>
+
+          <p className='text-xl md:text-2xl text-text-light mb-8 max-w-4xl mx-auto margTopText'>
             Обслуговування авто будь-якої марки з гарантією 12 місяців
           </p>
 
@@ -56,10 +72,15 @@ const HeroSection = () => {
             </Button>
           </div>
 
-          <p className='text-xl md:text-2xl text-text-light mb-8 max-w-4xl mx-auto textBottom'>
-            Ваш надійний автосервіс у Києві. Обслуговування авто будь-якої марки з гарантією 12
-            місяців.
-          </p>
+          <div className='textBlockBottom'>
+            <h3 className='text-xl md:text-2xl text-text-light mb-8 max-w-4xl mx-auto textBottom'>
+              Гарантія якості 12 місяців
+            </h3>
+            <p className='text-xl md:text-2xl text-text-light mb-8 max-w-4xl mx-auto margTopTextBottom'>
+              На всі виконані роботи та встановлені запчастини ми надаємо офіційну гарантію. Ваш
+              спокій – наш пріоритет!
+            </p>
+          </div>
         </div>
       </div>
     </section>
