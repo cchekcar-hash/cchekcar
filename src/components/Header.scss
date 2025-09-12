@@ -1,6 +1,10 @@
 @media (max-width: 730px) {
   .phoneBlockNew {
     display: flex !important;
+    padding: 1.75vw 2.5vw;
+    // background: rgb(235, 235, 235);
+    border-radius: 4vw;
+    border: 0.1vw solid hsl(var(--brand-orange));
 
     & .iconNew {
       display: none;
@@ -11,8 +15,13 @@
     }
 
     & a {
-      color: hsl(var(--brand-orange-dark));
+      color: black;
+      font-weight: 700;
       line-height: 1em;
     }
+  }
+
+  .burgerBlock {
+    padding: 0 !important;
   }
 }

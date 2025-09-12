@@ -69,7 +69,7 @@ const Header = () => {
           </div>
 
           {/* Mobile menu button */}
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className='md:hidden p-2'>
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className='md:hidden p-2 burgerBlock'>
             {isMenuOpen ? (
               <X className='h-6 w-6 text-text-dark' />
             ) : (
