@@ -19,31 +19,6 @@ const Header = () => {
     }
   };
 
-  // Функция для открытия Binotel GetCall формы
-  const openBinotelForm = () => {
-    console.log('Попытка открыть Binotel GetCall...'); // Для отладки
-
-    setTimeout(() => {
-      const widgetHash = '4uox021xc4vx3s6rj7oe'; // Твой hash из HTML
-      const binotelWidget = (window as any).BinotelGetCall?.[widgetHash];
-
-      console.log('BinotelGetCall:', (window as any).BinotelGetCall); // Лог объекта
-      console.log('Widget:', binotelWidget); // Лог виджета
-
-      if (binotelWidget && typeof binotelWidget.openPassiveForm === 'function') {
-        // Открываем форму с кастомным заголовком и описанием (опционально)
-        binotelWidget.openPassiveForm(
-          'Ми передзвонимо за 30 секунд!',
-          'Залиште номер для запису на сервіс',
-        );
-        console.log('Форма Binotel відкрита!');
-      } else {
-        console.warn('Binotel виджет не знайдено, fallback на tel:');
-        // window.location.href = 'tel:+380936430070';
-      }
-    }, 10000); // Небольшая задержка на инициализацию
-  };
-
   return (
     <header className='fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border shadow-soft'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
@@ -101,14 +76,7 @@ const Header = () => {
               tabIndex={0}
               onKeyDown={handlePhoneKeyDown}>
               <Phone className='h-4 w-4 mr-1 iconNew' aria-hidden='true' />
-              <button
-                type='button'
-                onClick={openBinotelForm}
-                className='bingc-action-open-passive-form binotel-getcall cursor-pointer hover:text-brand-blue transition-colors select-none border-none bg-transparent p-0 text-inherit text-sm text-text-light'
-                data-phone='+380936430070'
-                aria-label='Замовити дзвінок: +38 (093) 643-00-70'>
-                +38 (093) 643-00-70
-              </button>
+              <a href='tel:+380936430070'>+38 (093) 643-00-70</a>
             </div>
             <Button
               onClick={() => scrollToSection('booking')}
@@ -178,14 +146,7 @@ const Header = () => {
                   tabIndex={0}
                   onKeyDown={handlePhoneKeyDown}>
                   <Phone className='h-4 w-4 mr-1' aria-hidden='true' />
-                  <button
-                    type='button'
-                    onClick={openBinotelForm}
-                    className='bingc-action-open-passive-form binotel-getcall cursor-pointer hover:text-brand-blue transition-colors select-none border-none bg-transparent p-0 text-inherit text-sm text-text-light'
-                    data-phone='+380936430070'
-                    aria-label='Замовити дзвінок: +38 (093) 643-00-70'>
-                    +38 (093) 643-00-70
-                  </button>
+                  <a href='tel:+380936430070'>+38 (093) 643-00-70</a>
                 </div>
                 <Button
                   onClick={() => scrollToSection('booking')}
