@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Menu, X, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import DiscountBlock from './DiscountBlock';
+import './Header.scss';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -55,14 +56,14 @@ const Header = () => {
           </nav>
 
           {/* Contact Info & CTA */}
-          <div className='hidden lg:flex items-center space-x-4'>
+          <div className='hidden lg:flex items-center space-x-4 phoneBlockNew'>
             <div className='flex items-center text-sm text-text-light'>
-              <Phone className='h-4 w-4 mr-1' />
+              <Phone className='h-4 w-4 mr-1 iconNew' />
               <a href='tel:+380936430070'>+38 (093) 643-00-70</a>
             </div>
             <Button
               onClick={() => scrollToSection('booking')}
-              className='bg-gradient-hero hover:opacity-90'>
+              className='bg-gradient-hero hover:opacity-90 buttonNew'>
               Записатися
             </Button>
           </div>

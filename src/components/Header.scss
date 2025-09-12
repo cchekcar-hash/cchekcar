@@ -1,0 +1,13 @@
+@media (max-width: 1024px) {
+  .phoneBlockNew {
+    display: flex !important;
+
+    & .iconNew {
+      display: none;
+    }
+
+    & .buttonNew {
+      display: none;
+    }
+  }
+}
