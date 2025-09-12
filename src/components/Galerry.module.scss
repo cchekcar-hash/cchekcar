@@ -1,0 +1,269 @@
+.trustedScreen {
+  padding: 3vw 0;
+
+  &.trustedScreenA {
+    padding: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .trustedScreen {
+    padding: 7vw 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .trustedScreen {
+    padding: 10vw 0;
+  }
+}
+
+.trustedScreenBlocks {
+  background: linear-gradient(
+    135deg,
+    var(--main-page-b-color-white3),
+    var(--main-page-b-color-white4)
+  );
+  margin-top: 1.5vw;
+  border-bottom: 0.1vw solid #d9d9d9;
+  border-top: 0.1vw solid #d9d9d9;
+
+  &.trustedScreenBlocksA {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .trustedScreenBlocks {
+    margin-top: 5vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .trustedScreenBlocks {
+    margin-top: 7vw;
+  }
+}
+
+.trustedScreenBlock {
+  display: flex;
+  justify-content: center;
+  padding: 0.5vw 2vw;
+
+  & img {
+    width: 8vw;
+    height: auto;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .trustedScreenBlock {
+    padding: 2vw 3vw;
+
+    & img {
+      width: 15vw;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .trustedScreenBlock {
+    padding: 3vw 5vw;
+
+    & img {
+      width: 25vw;
+    }
+  }
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8); /* Semi-transparent black overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.modalImage {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modalCloseButton {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  background: var(--main-page-b-color-darkGrey);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: var(--main-page-b-color-lightBlue);
+  }
+}
+
+.modalNavButtonPrev,
+.modalNavButtonNext {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--main-page-b-color-darkGrey);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: var(--main-page-b-color-lightBlue);
+  }
+}
+
+.modalNavButtonPrev {
+  left: -75px;
+}
+
+.modalNavButtonNext {
+  right: -75px;
+}
+
+@media (max-width: 1024px) {
+  .modalCloseButton {
+    top: -20px;
+    right: -20px;
+    width: 25px;
+    height: 25px;
+    font-size: 16px;
+  }
+
+  .modalNavButtonPrev,
+  .modalNavButtonNext {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+  }
+
+  .modalNavButtonPrev {
+    left: -30px;
+  }
+
+  .modalNavButtonNext {
+    right: -30px;
+  }
+}
+
+@media (max-width: 576px) {
+  .modalCloseButton {
+    top: -15px;
+    right: -15px;
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
+  }
+
+  .modalNavButtonPrev,
+  .modalNavButtonNext {
+    width: 25px;
+    height: 25px;
+    font-size: 16px;
+  }
+
+  .modalNavButtonPrev {
+    left: -20px;
+  }
+
+  .modalNavButtonNext {
+    right: -20px;
+  }
+}
+
+.header {
+  text-align: center;
+
+  h2 {
+    background: linear-gradient(
+      135deg,
+      var(--main-page-b-color-darkGrey),
+      var(--main-page-b-color-lightBlue)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 2.1vw;
+    color: var(--main-page-b-color-darkGrey);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--font-lineh-small2);
+  }
+
+  p {
+    font-size: 0.85vw;
+    margin: 0 auto;
+    color: var(--main-page-b-color-light-lightBlue);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-smallStrong);
+    line-height: var(--font-lineh-big);
+    margin-top: 0.5vw;
+  }
+}
+
+@media (max-width: 1024px) {
+  .header {
+    h2 {
+      font-size: 3.6vw;
+    }
+
+    p {
+      font-size: 1.8vw;
+      margin-top: 0.5vw;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .header {
+    h2 {
+      font-size: 8vw;
+    }
+
+    p {
+      font-size: 3.6vw;
+      margin-top: 1vw;
+    }
+  }
+}
