@@ -9,5 +9,10 @@
     & .buttonNew {
       display: none;
     }
+
+    & a {
+      color: hsl(var(--brand-orange-dark));
+      line-height: 1em;
+    }
   }
 }
