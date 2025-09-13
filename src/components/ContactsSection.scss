@@ -58,3 +58,126 @@
     margin-top: 5vw;
   }
 }
+
+.mapsButtonBlock {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  & .mapsWidth {
+    display: flex;
+    width: 70%;
+    gap: 4vw;
+
+    & .buttonMaps {
+      background: none;
+      border: 0;
+      font-weight: 500;
+      font-size: 0.75vw;
+      text-align: center;
+      text-transform: uppercase;
+      color: #2bba7d;
+      width: calc(50% - 0.4vw);
+      background: #ddf9ea;
+      border-radius: 0.3vw;
+      padding: 0.75vw 1.5vw;
+      text-decoration: none;
+    }
+  }
+}
+
+@media (max-width: 1600px) {
+  .mapsButtonBlock {
+    & .mapsWidth {
+      display: flex;
+      width: 80%;
+      gap: 8vw;
+
+      & .buttonMaps {
+        background: none;
+        border: 0;
+        font-weight: 500;
+        font-size: 1.2vw;
+        text-align: center;
+        text-transform: uppercase;
+        color: #2bba7d;
+        width: 100%;
+        background: #ddf9ea;
+        border-radius: 1vw;
+        padding: 1.5vw 1vw;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .mapsButtonBlock {
+    & .mapsWidth {
+      display: flex;
+      width: 80%;
+      gap: 8vw;
+
+      & .buttonMaps {
+        background: none;
+        border: 0;
+        font-weight: 500;
+        font-size: 2vw;
+        text-align: center;
+        text-transform: uppercase;
+        color: #2bba7d;
+        width: 100%;
+        background: #ddf9ea;
+        border-radius: 1vw;
+        padding: 2vw 3vw;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .mapsButtonBlock {
+    & .mapsWidth {
+      display: flex;
+      width: 100%;
+      gap: 4vw;
+
+      & .buttonMaps {
+        background: none;
+        border: 0;
+        font-weight: 500;
+        font-size: 3.6vw;
+        text-align: center;
+        text-transform: uppercase;
+        color: #2bba7d;
+        width: 100%;
+        background: #ddf9ea;
+        border-radius: 1vw;
+        padding: 3vw 4vw;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.margTopTitle {
+  margin-top: 2vw;
+}
+
+@media (max-width: 1024px) {
+  .margTopTitle {
+    margin-top: 5vw;
+    margin-bottom: 4vw;
+
+    &.mb-16 {
+      margin-bottom: 6vw;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .margTopTitle {
+    margin-top: 6vw;
+  }
+}

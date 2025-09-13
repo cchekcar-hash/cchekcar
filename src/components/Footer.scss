@@ -1,0 +1,18 @@
+.imageIcon {
+  width: 1.2vw;
+  height: 1.2vw;
+}
+
+@media (max-width: 1024px) {
+  .imageIcon {
+    width: 3vw;
+    height: 3vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .imageIcon {
+    width: 6.5vw;
+    height: 6.5vw;
+  }
+}

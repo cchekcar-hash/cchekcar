@@ -51,7 +51,7 @@ const HeroSection = () => {
             </p>
           </div>
 
-          <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
+          <div className='flex flex-col sm:flex-row gap-4 justify-center items-center flexWrap'>
             <Button
               variant='hero'
               size='xl'
@@ -70,6 +70,13 @@ const HeroSection = () => {
               }>
               Наші послуги
             </Button>
+            <button
+              className='buttonDownSprint'
+              onClick={() =>
+                document.getElementById('contactsMap')?.scrollIntoView({ behavior: 'smooth' })
+              }>
+              Як доїхати?
+            </button>
           </div>
 
           <div className='textBlockBottom'>

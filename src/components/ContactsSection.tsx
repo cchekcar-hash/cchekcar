@@ -42,7 +42,7 @@ const ContactsSection = () => {
                   <div>
                     <h3 className='font-bold text-text-dark text-lg mb-2'>Адреса</h3>
                     <p className='text-text-light'>
-                      вулиця Вацлава Гавела, 4 (на території БЦ)
+                      вулиця Вацлава Гавела, 4 (на території БЦ Silver Cetre)
                       <br />
                       Київ, Україна
                     </p>
@@ -80,7 +80,7 @@ const ContactsSection = () => {
               </CardContent>
             </Card>
 
-            <Card className='border-0 shadow-card'>
+            <Card className='border-0 shadow-card' id='contactsMap'>
               <CardContent className='p-6'>
                 <div className='flex items-start gap-4'>
                   <div className='w-12 h-12 bg-gradient-hero rounded-xl flex items-center justify-center shrink-0'>
@@ -97,6 +97,25 @@ const ContactsSection = () => {
                 </div>
               </CardContent>
             </Card>
+          </div>
+        </div>
+        <div className='text-center mb-16 margTopTitle'>
+          <h2 className='text-4xl md:text-5xl font-bold text-text-dark mb-6'>Прокласти маршрут</h2>
+        </div>
+        <div className='mapsButtonBlock'>
+          <div className='mapsWidth'>
+            <a
+              href='https://maps.app.goo.gl/nP31FeEo1LcMjvdH6'
+              target='_blank'
+              className='buttonMaps'>
+              Google Maps
+            </a>
+            <a
+              href='https://ul.waze.com/ul?place=ChIJ5QYl2XnN1EARIZOki0GUuAI&ll=50.44758200%2C30.43042170&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location'
+              target='_blank'
+              className='buttonMaps'>
+              Waze
+            </a>
           </div>
         </div>
         <div className='w-full aspect-video mx-auto videoNew'>

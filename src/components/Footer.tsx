@@ -1,4 +1,5 @@
 import { MapPin, Phone, Clock, Mail, Facebook, Instagram } from 'lucide-react';
+import './Footer.scss';
 
 const Footer = () => {
   return (
@@ -13,11 +14,17 @@ const Footer = () => {
               місяців.
             </p>
             <div className='flex space-x-4'>
-              <a href='#' className='text-gray-300 hover:text-brand-orange transition-colors'>
+              {/* <a href='#' className='text-gray-300 hover:text-brand-orange transition-colors'>
                 <Facebook className='h-5 w-5' />
               </a>
               <a href='#' className='text-gray-300 hover:text-brand-orange transition-colors'>
-                <Instagram className='h-5 w-5' />
+                <Instagram className='h-5 w-5' /><Tiktok />
+              </a> */}
+              <a
+                href='https://www.tiktok.com/@.chekcar?_t=ZS-8zfqDzH1Rf5&_r=1'
+                className='text-gray-300 hover:text-brand-orange transition-colors'
+                target='_blank'>
+                <img src='assets/tiktok-icon.png' className='imageIcon' />
               </a>
             </div>
           </div>

@@ -123,3 +123,37 @@
     padding-bottom: 10vw;
   }
 }
+
+.buttonDownSprint {
+  display: none;
+  background: none;
+  border: 0;
+  font-size: 0.85vw;
+}
+
+@media (max-width: 1024px) {
+  .flexWrap {
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .buttonDownSprint {
+    margin-top: 2vw;
+    display: flex;
+    font-size: 2.8vw;
+    font-weight: 600;
+    padding: 0 15vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .buttonDownSprint {
+    display: flex;
+    background: none;
+    border: 0;
+    font-size: 4vw;
+    margin-top: 2vw;
+    font-weight: 600;
+  }
+}
