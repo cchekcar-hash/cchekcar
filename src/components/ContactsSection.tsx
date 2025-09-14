@@ -107,13 +107,14 @@ const ContactsSection = () => {
             <a
               href='https://maps.app.goo.gl/nP31FeEo1LcMjvdH6'
               target='_blank'
-              className='buttonMaps'>
-              Google Maps
+              className='buttonMaps google'>
+              Google <img src='assets/google-maps.png' /> Maps
             </a>
             <a
               href='https://ul.waze.com/ul?place=ChIJ5QYl2XnN1EARIZOki0GUuAI&ll=50.44758200%2C30.43042170&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location'
               target='_blank'
-              className='buttonMaps'>
+              className='buttonMaps waze'>
+              <img src='assets/waze.png' />
               Waze
             </a>
           </div>

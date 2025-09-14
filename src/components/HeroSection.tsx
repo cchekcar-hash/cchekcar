@@ -33,12 +33,12 @@ const HeroSection = () => {
             </li>
             <li>
               <Shield className='iconlist' />
-              Гарантія 12 місяців / 10 000 км
+              Гарантія на роботи
             </li>
           </ul>
 
           <p className='text-xl md:text-2xl text-text-light mb-8 max-w-4xl mx-auto margTopText'>
-            Обслуговування авто будь-якої марки з гарантією 12 місяців
+            Обслуговування авто будь-якої марки з гарантією
           </p>
 
           {/* Special Offer Banner */}
@@ -84,7 +84,7 @@ const HeroSection = () => {
               Гарантія якості 12 місяців
             </h3>
             <p className='text-xl md:text-2xl text-text-light mb-8 max-w-4xl mx-auto margTopTextBottom'>
-              На всі виконані роботи та встановлені запчастини ми надаємо офіційну гарантію. Ваш
+              На всі виконані роботи у разі використання запчастин від наших постачальників. Ваш
               спокій – наш пріоритет!
             </p>
           </div>

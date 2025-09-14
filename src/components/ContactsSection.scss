@@ -60,7 +60,7 @@
 }
 
 .mapsButtonBlock {
-  display: flex;
+  display: none;
   flex-direction: row;
   justify-content: center;
 
@@ -70,18 +70,33 @@
     gap: 4vw;
 
     & .buttonMaps {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1vw;
       background: none;
       border: 0;
       font-weight: 500;
       font-size: 0.75vw;
       text-align: center;
       text-transform: uppercase;
-      color: #2bba7d;
+      color: #ff0000;
       width: calc(50% - 0.4vw);
       background: #ddf9ea;
       border-radius: 0.3vw;
       padding: 0.75vw 1.5vw;
       text-decoration: none;
+      border: 0.1vw solid #f9851f !important;
+
+      &.google {
+        background: white;
+        color: black;
+      }
+
+      &.waze {
+        background: #38cefe;
+        color: white;
+      }
     }
   }
 }
@@ -94,15 +109,9 @@
       gap: 8vw;
 
       & .buttonMaps {
-        background: none;
-        border: 0;
         font-weight: 500;
         font-size: 1.2vw;
         text-align: center;
-        text-transform: uppercase;
-        color: #2bba7d;
-        width: 100%;
-        background: #ddf9ea;
         border-radius: 1vw;
         padding: 1.5vw 1vw;
         text-decoration: none;
@@ -113,24 +122,27 @@
 
 @media (max-width: 1024px) {
   .mapsButtonBlock {
+    display: flex;
     & .mapsWidth {
       display: flex;
       width: 80%;
       gap: 8vw;
 
       & .buttonMaps {
-        background: none;
-        border: 0;
         font-weight: 500;
         font-size: 2vw;
         text-align: center;
         text-transform: uppercase;
-        color: #2bba7d;
-        width: 100%;
-        background: #ddf9ea;
         border-radius: 1vw;
         padding: 2vw 3vw;
         text-decoration: none;
+
+        & img {
+          background: white;
+          border-radius: 1100%;
+          width: 2.5vw;
+          height: 2.5vw;
+        }
       }
     }
   }
@@ -156,6 +168,12 @@
         border-radius: 1vw;
         padding: 3vw 4vw;
         text-decoration: none;
+        gap: 1.5vw;
+
+        & img {
+          width: 4.5vw;
+          height: 4.5vw;
+        }
       }
     }
   }
