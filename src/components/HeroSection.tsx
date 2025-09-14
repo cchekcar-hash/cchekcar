@@ -71,7 +71,7 @@ const HeroSection = () => {
               Наші послуги
             </Button>
             <button
-              className='text-xl px-12 py-6 border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white buttonDownSprint'
+              className='text-xl px-12 py-6 border-2 border-brand-blue text-brand-blue  hover:text-white buttonDownSprint'
               onClick={() =>
                 document.getElementById('contactsMap')?.scrollIntoView({ behavior: 'smooth' })
               }>
