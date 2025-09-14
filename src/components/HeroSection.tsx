@@ -94,7 +94,7 @@ const HeroSection = () => {
         className='buttonMoveUpBlock'
         onClick={() => document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' })}>
         <button className='buttonMoveUp'>
-          <ArrowUp className='buttonMoveUpIcon' />
+          <ArrowUp className='buttonMoveUpIcon d' />
         </button>
       </div>
     </section>
