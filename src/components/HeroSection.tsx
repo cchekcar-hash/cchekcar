@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import heroImage from '@/assets/hero-bg.jpg';
 import './HeroSection.scss';
-import { Clock, Shield, Sparkles } from 'lucide-react';
+import { ArrowUp, Clock, Shield, Sparkles } from 'lucide-react';
 
 const HeroSection = () => {
   return (
@@ -25,7 +25,7 @@ const HeroSection = () => {
           <ul className='listNew'>
             <li>
               <Sparkles className='iconlist' />
-              15 000+ позитивних відгуків
+              1500+ позитивних відгуків
             </li>
             <li>
               <Clock className='iconlist' />
@@ -71,7 +71,7 @@ const HeroSection = () => {
               Наші послуги
             </Button>
             <button
-              className='buttonDownSprint'
+              className='text-xl px-12 py-6 border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white buttonDownSprint'
               onClick={() =>
                 document.getElementById('contactsMap')?.scrollIntoView({ behavior: 'smooth' })
               }>
@@ -89,6 +89,13 @@ const HeroSection = () => {
             </p>
           </div>
         </div>
+      </div>
+      <div
+        className='buttonMoveUpBlock'
+        onClick={() => document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' })}>
+        <button className='buttonMoveUp'>
+          <ArrowUp className='buttonMoveUpIcon' />
+        </button>
       </div>
     </section>
   );

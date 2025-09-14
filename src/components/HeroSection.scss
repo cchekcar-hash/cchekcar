@@ -126,8 +126,6 @@
 
 .buttonDownSprint {
   display: none;
-  background: none;
-  border: 0;
   font-size: 0.85vw;
 }
 
@@ -138,22 +136,55 @@
     flex-wrap: wrap;
     align-items: center;
   }
+
   .buttonDownSprint {
-    margin-top: 2vw;
+    margin-top: 1.5vw;
     display: flex;
     font-size: 2.8vw;
     font-weight: 600;
-    padding: 0 15vw;
+    padding: 1vw 15vw !important;
+    border-radius: 1vw;
+    color: hsl(var(--brand-orange)) !important;
+
+    &.border-brand-blue {
+      border-color: hsl(var(--brand-orange));
+    }
   }
 }
 
 @media (max-width: 576px) {
   .buttonDownSprint {
     display: flex;
-    background: none;
-    border: 0;
     font-size: 4vw;
-    margin-top: 2vw;
+    margin-top: 0vw;
     font-weight: 600;
+    padding: 2vw 7vw !important;
+    border-radius: 1.75vw;
+  }
+}
+
+.buttonMoveUpBlock {
+  display: none;
+}
+
+@media (max-width: 576px) {
+  .buttonMoveUpBlock {
+    display: flex;
+    position: fixed;
+    bottom: 8.5%;
+    right: 2%;
+    z-index: 9999;
+
+    & .buttonMoveUp {
+      display: flex;
+      background-color: #053fb5;
+      border-radius: 50%;
+      padding: 3.5vw;
+      & .buttonMoveUpIcon {
+        width: 6vw;
+        height: 6vw;
+        color: white;
+      }
+    }
   }
 }
