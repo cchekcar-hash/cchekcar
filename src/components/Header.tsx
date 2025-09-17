@@ -140,14 +140,6 @@ const Header = () => {
                 Контакти
               </button>
               <div className='pt-4 border-t border-border'>
-                <div
-                  className='flex items-center text-sm text-text-light mb-3'
-                  role='button'
-                  tabIndex={0}
-                  onKeyDown={handlePhoneKeyDown}>
-                  <Phone className='h-4 w-4 mr-1' aria-hidden='true' />
-                  <a href='tel:+380936430070'>+38 (093) 643-00-70</a>
-                </div>
                 <Button
                   onClick={() => scrollToSection('booking')}
                   className='w-full bg-gradient-hero hover:opacity-90'>
