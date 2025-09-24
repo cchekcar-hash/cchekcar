@@ -99,7 +99,11 @@ const HeroSection = () => {
               спокій – наш пріоритет!
             </p> */}
             <MapPin className='h-6 w-6 text-white iconChange' />
-            <p className='textChange'>
+            <p
+              className='textChange'
+              onClick={() =>
+                document.getElementById('contactsMap')?.scrollIntoView({ behavior: 'smooth' })
+              }>
               вулиця Вацлава Гавела, 4 (на території БЦ Silver Cetre) Київ, Україна
             </p>
           </div>
