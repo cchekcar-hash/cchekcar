@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import heroImage from '@/assets/hero-bg.jpg';
 import './HeroSection.scss';
-import { ArrowUp, Clock, Shield, Sparkles } from 'lucide-react';
+import { ArrowUp, Clock, MapPin, PhoneCall, Shield, Sparkles } from 'lucide-react';
 
 const HeroSection = () => {
   return (
@@ -17,12 +17,12 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className='relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
-        <div className='bg-white/95 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-card'>
+        <div className='bg-white/95 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-card paddingSmall'>
           <h1 className='text-4xl md:text-6xl lg:text-7xl font-bold text-text-dark mb-6 leading-tight'>
             <span className='text-brand-blue'>ChekCar</span> – ваш надійний автосервіс у Києві
           </h1>
 
-          <ul className='listNew'>
+          {/* <ul className='listNew'>
             <li>
               <Sparkles className='iconlist' />
               1500+ позитивних відгуків
@@ -35,10 +35,14 @@ const HeroSection = () => {
               <Shield className='iconlist' />
               Гарантія на роботи
             </li>
-          </ul>
+          </ul> */}
 
-          <p className='text-xl md:text-2xl text-text-light mb-8 max-w-4xl mx-auto margTopText'>
-            Обслуговування авто будь-якої марки з гарантією
+          <p className='text-xl md:text-2xl text-text-light mb-8 max-w-4xl mx-auto margTopText margTopBottomNone'>
+            Обслуговування авто будь-якої марки з гарантією{' '}
+            <strong> 3 місяці або 20 000 км </strong>
+          </p>
+          <p className='text-xl md:text-2xl text-text-light mb-8 max-w-4xl mx-auto margTopText smallText'>
+            Потрібен ремонт авто, дзвони нам!
           </p>
 
           {/* Special Offer Banner */}
@@ -52,16 +56,23 @@ const HeroSection = () => {
           </div>
 
           <div className='flex flex-col sm:flex-row gap-4 justify-center items-center flexWrap'>
-            <Button
-              variant='hero'
-              size='xl'
-              className='text-xl px-12 py-6'
-              onClick={() =>
-                document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })
-              }>
-              Записатися зараз
-            </Button>
-            <Button
+            <a href='tel:+380936430070'>
+              <Button variant='hero' size='xl' className='text-xl px-12 py-6 buttonHeroWidth'>
+                <PhoneCall className='newIconCall' />
+                Записатися зараз
+              </Button>
+            </a>
+            {/*  <Button
+                variant='hero'
+                size='xl'
+                className='text-xl px-12 py-6 buttonHeroWidth'
+                onClick={() =>
+                  document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })
+                }>
+                <PhoneCall className='newIconCall' />
+                Записатися зараз
+              </Button> */}
+            {/* <Button
               variant='outline'
               size='xl'
               className='text-xl px-12 py-6 border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white'
@@ -69,23 +80,27 @@ const HeroSection = () => {
                 document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })
               }>
               Наші послуги
-            </Button>
-            <button
+            </Button> */}
+            {/* <button
               className='text-xl px-12 py-6 border-2 border-brand-blue text-brand-blue  hover:text-white buttonDownSprint'
               onClick={() =>
                 document.getElementById('contactsMap')?.scrollIntoView({ behavior: 'smooth' })
               }>
               Як доїхати?
-            </button>
+            </button> */}
           </div>
 
           <div className='textBlockBottom'>
-            <h3 className='text-xl md:text-2xl text-text-light mb-8 max-w-4xl mx-auto textBottom'>
+            {/* <h3 className='text-xl md:text-2xl text-text-light mb-8 max-w-4xl mx-auto textBottom'>
               Гарантія якості 12 місяців
             </h3>
             <p className='text-xl md:text-2xl text-text-light mb-8 max-w-4xl mx-auto margTopTextBottom'>
               На всі виконані роботи у разі використання запчастин від наших постачальників. Ваш
               спокій – наш пріоритет!
+            </p> */}
+            <MapPin className='h-6 w-6 text-white iconChange' />
+            <p className='textChange'>
+              вулиця Вацлава Гавела, 4 (на території БЦ Silver Cetre) Київ, Україна
             </p>
           </div>
         </div>

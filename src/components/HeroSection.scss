@@ -52,15 +52,34 @@
 
   .margTopText {
     margin-top: 5vw;
+
+    &.smallText {
+      font-size: 2.8vw;
+      margin-bottom: 2vw;
+      font-weight: 600;
+      color: hsl(var(--brand-orange));
+    }
+  }
+
+  .buttonHeroWidth {
+    width: 100%;
+    padding: 5vw 0;
+
+    & .newIconCall {
+      width: 2.8vw;
+      height: 2.8vw;
+    }
   }
 
   .textBlockBottom {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: flex-start;
     background: rgb(235, 235, 235) !important;
     border-radius: 2vw;
     margin-top: 4vw;
-    padding: 4vw 4vw;
+    padding: 3vw 3vw;
+    gap: 2vw;
 
     & .textBottom {
       margin: 0;
@@ -70,6 +89,20 @@
     & .margTopTextBottom {
       margin-top: 3vw;
       margin-bottom: 0;
+    }
+
+    & .iconChange {
+      width: 3vw;
+      height: 4vw;
+      color: hsl(var(--brand-orange));
+    }
+
+    & .textChange {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      text-align: left;
+      font-size: 2.4vw;
     }
   }
 }
@@ -90,14 +123,33 @@
     }
   }
 
+  .buttonHeroWidth {
+    & .newIconCall {
+      width: 5.5vw;
+      height: 5.5vw;
+    }
+  }
+
   .margTopText {
     margin-top: 8vw;
+    margin-bottom: 0;
+
+    &.margTopBottomNone {
+      margin: 0;
+    }
+
+    &.smallText {
+      font-size: 4vw;
+      margin-bottom: 1.5vw;
+      margin-top: 3vw;
+    }
   }
 
   .textBlockBottom {
     border-radius: 3vw;
     margin-top: 7vw;
-    padding: 5vw 2vw;
+    padding: 4vw 3.5vw;
+    gap: 2.5vw;
 
     & .textBottom {
       font-size: 4.5vw;
@@ -105,6 +157,20 @@
 
     & .margTopTextBottom {
       margin-top: 5vw;
+    }
+
+    & .iconChange {
+      width: 10vw;
+      height: 8vw;
+      color: hsl(var(--brand-orange));
+    }
+
+    & .textChange {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      text-align: left;
+      font-size: 4.2vw;
     }
   }
 }
