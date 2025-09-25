@@ -50,7 +50,7 @@ const Header = () => {
             </button>
             <button
               type='button'
-              onClick={() => scrollToSection('testimonials')}
+              onClick={() => scrollToSection('feedbacks')}
               className='text-text-dark hover:text-brand-blue transition-colors'>
               Відгуки
             </button>

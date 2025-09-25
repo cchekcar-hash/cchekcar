@@ -7,42 +7,49 @@ const services = [
     title: 'Заміна моторної оливи',
     description: 'Повна заміна масла + фільтра за 30 хвилин',
     price: 'від 600 грн',
+    idCard: 'changing-engine-oil',
   },
   {
     icon: Stethoscope,
     title: "Комп'ютерна діагностика",
     description: 'Перевірка 50+ пунктів вашого авто',
     price: 'від 900 грн',
+    idCard: 'computer-diagnostics',
   },
   {
     icon: Settings,
     title: 'Заміна гальмівних колодок',
     description: 'Повна заміна з перевіркою гальмівної системи',
     price: 'від 1200 грн',
+    idCard: 'replacing-brake-pads',
   },
   {
     icon: Settings,
     title: 'Ремонт двигуна',
     description: 'Повний ремонт двигуна з діагностикою та гарантією',
     price: 'від 40000 грн',
+    idCard: 'engine-repair',
   },
   {
     icon: Target,
     title: 'Ремонт коробки передач',
     description: 'Ремонт механічних та автоматичних коробок передач',
     price: 'від 14000 грн',
+    idCard: 'gearbox-repair',
   },
   {
     icon: Car,
     title: 'Комплексна діагностика',
     description: 'Повна перевірка всіх систем автомобіля',
     price: 'від 1800 грн',
+    idCard: 'comprehensive-diagnostics',
   },
   {
     icon: CircleDot,
     title: 'Шиномонтаж',
     description: 'Заміна, балансування, ремонт коліс',
     price: 'від 400 грн',
+    idCard: 'tire-fitting',
   },
 ];
 
@@ -62,7 +69,8 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <Card
               key={index}
-              className='group hover:shadow-card transition-all duration-300 hover:scale-105 border-0 shadow-soft'>
+              className='group hover:shadow-card transition-all duration-300 hover:scale-105 border-0 shadow-soft'
+              id={service.idCard}>
               <CardHeader className='text-center pb-4'>
                 <div className='w-16 h-16 mx-auto mb-4 bg-gradient-hero rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300'>
                   <service.icon className='h-8 w-8 text-white' />
