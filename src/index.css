@@ -48,7 +48,11 @@ All colors MUST be HSL.
 
     /* Gradients */
     --gradient-hero: linear-gradient(135deg, hsl(var(--brand-blue)), hsl(var(--brand-blue-dark)));
-    --gradient-accent: linear-gradient(135deg, hsl(var(--brand-orange)), hsl(var(--brand-orange-dark)));
+    --gradient-accent: linear-gradient(
+      135deg,
+      hsl(var(--brand-orange)),
+      hsl(var(--brand-orange-dark))
+    );
 
     /* Shadows */
     --shadow-soft: 0 4px 20px hsl(var(--brand-blue) / 0.1);
@@ -96,4 +100,8 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+}
+
+:target {
+  scroll-margin-top: 10vh;
 }
