@@ -146,10 +146,12 @@
   }
 
   .textBlockBottom {
+    border: 0.1vw solid hsl(var(--brand-orange));
     border-radius: 3vw;
     margin-top: 7vw;
     padding: 4vw 3.5vw;
     gap: 2.5vw;
+    box-shadow: 0px 0px 5vw -1vw rgba(0, 0, 0, 0.51);
 
     & .textBottom {
       font-size: 4.5vw;
