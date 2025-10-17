@@ -42,15 +42,62 @@ const BookingSection = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
+  const [errors, setErrors] = useState({ name: '', phone: '', car: '', service: '' });
 
-  const handleInputChange = (field: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
+  // ✅ более универсальная валидация телефона
+  // принимает номера начиная с + и 10–13 цифр (например: +380990915435, 0990915435)
+  const validatePhone = (phone) => {
+    const phoneRegex = /^\+?\d{10,13}$/;
+    return phoneRegex.test(phone);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const validateForm = () => {
+    const newErrors = { name: '', phone: '', car: '', service: '' };
+    let isValid = true;
+
+    if (formData.name.length < 2) {
+      newErrors.name = "Ім'я має містити принаймні 2 символи";
+      isValid = false;
+    }
+
+    if (!validatePhone(formData.phone)) {
+      newErrors.phone = 'Введіть коректний номер телефону (наприклад +380990915435 або 0990915435)';
+      isValid = false;
+    }
+
+    if (formData.car.length < 2) {
+      newErrors.car = 'Марка/модель має містити принаймні 2 символи';
+      isValid = false;
+    }
+
+    if (!formData.service) {
+      newErrors.service = 'Оберіть послугу';
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
+
+  const handleInputChange = (field, value) => {
+    if (field === 'phone') {
+      // Разрешаем только цифры и + в начале
+      value = value.replace(/(?!^\+)[^\d]/g, '').slice(0, 13);
+    }
+
+    setFormData((prev) => ({ ...prev, [field]: value }));
+    setErrors((prev) => ({ ...prev, [field]: '' }));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+
     setIsSubmitting(true);
-    setSuccessMessage(''); // Clear previous success message
+    setSuccessMessage('');
 
     try {
       const message = `
@@ -58,20 +105,20 @@ const BookingSection = () => {
 
       👤 Ім'я: ${formData.name}
       📱 Телефон: ${formData.phone}
-      🚗 Автомобіль: ${formData.car || 'Не вказано'}
-      ⚙️ Послуга: ${formData.service || 'Не вказано'}
+      🚗 Автомобіль: ${formData.car}
+      ⚙️ Послуга: ${formData.service}
     `;
 
       const TELEGRAM_BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
       const TELEGRAM_CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID;
 
       if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
-        throw new Error('Telegram Bot Token или Chat ID не настроены в .env');
+        throw new Error('Telegram Bot Token або Chat ID не налаштовані в .env');
       }
 
       const telegramUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
 
-      const response = await axios.post(telegramUrl, {
+      await axios.post(telegramUrl, {
         chat_id: TELEGRAM_CHAT_ID,
         text: message,
         parse_mode: 'Markdown',
@@ -79,6 +126,7 @@ const BookingSection = () => {
 
       setSuccessMessage("Дякуємо, що відправили заявку! Ми зв'яжемося з вами найближчим часом.");
       setFormData({ name: '', phone: '', car: '', service: '' });
+      setErrors({ name: '', phone: '', car: '', service: '' });
     } catch (error) {
       console.error('Помилка відправки даних:', error);
       alert('Виникла помилка при відправці даних. Спробуйте ще раз.');
@@ -121,8 +169,10 @@ const BookingSection = () => {
                       value={formData.name}
                       onChange={(e) => handleInputChange('name', e.target.value)}
                       required
+                      minLength={2}
                       className='border-2 border-border focus:border-brand-blue'
                     />
+                    {errors.name && <p className='text-red-500 text-sm'>{errors.name}</p>}
                   </div>
 
                   <div className='space-y-2'>
@@ -135,33 +185,40 @@ const BookingSection = () => {
                     <Input
                       id='phone'
                       type='tel'
-                      placeholder='+380 (XX) XXX-XX-XX'
+                      placeholder='+380990915435'
                       value={formData.phone}
                       onChange={(e) => handleInputChange('phone', e.target.value)}
                       required
                       className='border-2 border-border focus:border-brand-blue'
                     />
+                    {errors.phone && <p className='text-red-500 text-sm'>{errors.phone}</p>}
                   </div>
                 </div>
 
                 <div className='space-y-2'>
                   <Label htmlFor='car' className='text-text-dark font-semibold'>
-                    Марка/модель автомобіля
+                    Марка/модель автомобіля *
                   </Label>
                   <Input
                     id='car'
                     placeholder='Наприклад: Toyota Camry 2018'
                     value={formData.car}
                     onChange={(e) => handleInputChange('car', e.target.value)}
+                    required
+                    minLength={2}
                     className='border-2 border-border focus:border-brand-blue'
                   />
+                  {errors.car && <p className='text-red-500 text-sm'>{errors.car}</p>}
                 </div>
 
                 <div className='space-y-2'>
                   <Label htmlFor='service' className='text-text-dark font-semibold'>
-                    Послуга
+                    Послуга *
                   </Label>
-                  <Select onValueChange={(value) => handleInputChange('service', value)}>
+                  <Select
+                    onValueChange={(value) => handleInputChange('service', value)}
+                    value={formData.service}
+                    required>
                     <SelectTrigger className='border-2 border-border focus:border-brand-blue'>
                       <SelectValue placeholder='Оберіть послугу' />
                     </SelectTrigger>
@@ -173,6 +230,7 @@ const BookingSection = () => {
                       ))}
                     </SelectContent>
                   </Select>
+                  {errors.service && <p className='text-red-500 text-sm'>{errors.service}</p>}
                 </div>
 
                 <div className='space-y-4'>

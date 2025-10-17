@@ -89,9 +89,9 @@ const ContactsSection = () => {
                   <div>
                     <h3 className='font-bold text-text-dark text-lg mb-2'>Графік роботи</h3>
                     <div className='space-y-1 text-text-light'>
-                      <p>Понеділок - П'ятниця: 09:00 - 19:00</p>
-                      <p>Субота: за домовленістю</p>
-                      <p>Неділя: вихідний</p>
+                      <p>Понеділок - П'ятниця: 9:00 - 20:00</p>
+                      <p>Субота - Неділя: 10:00 - 20:00</p>
+                      {/* <p>: вихідний</p> */}
                     </div>
                   </div>
                 </div>

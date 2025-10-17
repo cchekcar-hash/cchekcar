@@ -93,9 +93,11 @@ const Footer = () => {
               <div className='flex items-center'>
                 <Clock className='h-4 w-4 mr-2 shrink-0' />
                 <div>
-                  <p>Пн-Пт: 09:00 - 19:00</p>
+                  <p>Пн-Пт: 9:00 - 20:00</p>
+                  <p>Сб - Нд: 10:00 - 20:00</p>
+                  {/* <p>Пн-Пт: 09:00 - 19:00</p>
                   <p>Сб: за домовленістю</p>
-                  <p>Нд: вихідний</p>
+                  <p>Нд: вихідний</p> */}
                 </div>
               </div>
             </div>
@@ -104,7 +106,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className='border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center'>
-          <p className='text-gray-400 text-sm'>© 2024 СТО ChekCar. Всі права захищені.</p>
+          <p className='text-gray-400 text-sm'>© 2025 СТО ChekCar. Всі права захищені.</p>
           <div className='flex space-x-6 mt-4 md:mt-0'>
             <a href='#' className='text-gray-400 hover:text-brand-orange text-sm transition-colors'>
               Політика конфіденційності
