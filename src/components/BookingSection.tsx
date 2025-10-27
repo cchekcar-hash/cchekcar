@@ -185,7 +185,7 @@ const BookingSection = () => {
                     <Input
                       id='phone'
                       type='tel'
-                      placeholder='+380990915435'
+                      placeholder='+380992315965'
                       value={formData.phone}
                       onChange={(e) => handleInputChange('phone', e.target.value)}
                       required
