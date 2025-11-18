@@ -14,17 +14,24 @@ const Footer = () => {
               місяців.
             </p>
             <div className='flex space-x-4'>
-              {/* <a href='#' className='text-gray-300 hover:text-brand-orange transition-colors'>
-                <Facebook className='h-5 w-5' />
-              </a>
-              <a href='#' className='text-gray-300 hover:text-brand-orange transition-colors'>
-                <Instagram className='h-5 w-5' /><Tiktok />
-              </a> */}
               <a
-                href='https://www.tiktok.com/@.chekcar?_t=ZS-8zfqDzH1Rf5&_r=1'
-                className='text-gray-300 hover:text-brand-orange transition-colors'
+                href='https://www.facebook.com/share/1CdahH69vy/?mibextid=wwXIfr'
+                className='text-gray-300 '
                 target='_blank'>
-                <img src='assets/tiktok-icon.png' className='imageIcon' />
+                <Facebook className=' imageIcon' />
+              </a>
+              <a
+                href='https://www.instagram.com/chekcar_kyiv?igsh=cjhwYmR3azluOGYy&utm_source=qr'
+                className='text-gray-300 '
+                target='_blank'>
+                <Instagram className=' imageIcon' />
+              </a>
+
+              <a
+                href='https://www.tiktok.com/@chekcar_kyiv?_r=1&_t=ZS-91UchgOOFlg'
+                className='text-gray-300 '
+                target='_blank'>
+                <img src='assets/tiktok-icon.png' className='imageIcon ' />
               </a>
             </div>
           </div>
