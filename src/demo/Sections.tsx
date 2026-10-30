@@ -1,7 +1,7 @@
 import { useState, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Clock, CheckCircle2, ChevronRight, Phone, PlayCircle, Star } from 'lucide-react';
-import { advantages, brands, business, google, priceUi, reviewUi, reviews, serviceGroups, services, startPrice, steps, ui, ui2, type Faq } from './content';
+import { advantages, brands, business, catalogue, google, priceUi, reviewUi, reviews, services, startPrice, steps, ui, ui2, type Faq } from './content';
 import { useLang, track } from './useLang';
 import { CallButton, OpenStatus, RouteButton } from './Layout';
 import BookingForm from './BookingForm';
@@ -135,31 +135,43 @@ export function ServicesGrid({ exclude }: { exclude?: string }) {
     <section id='services' className='py-16'>
       <div className='mx-auto max-w-6xl px-4'>
         <SectionTitle title={exclude ? t(ui.allServices) : t(ui.services)} />
-        <div className='grid gap-8 lg:grid-cols-3'>
-          {serviceGroups.map((g) => (
-            <div key={g.title.uk}>
-              <h3 className='mb-3 text-sm font-bold uppercase tracking-wider text-fire'>{t(g.title)}</h3>
-              <div className='space-y-2'>
-                {g.slugs
-                  .filter((slug) => slug !== exclude)
-                  .map((slug) => services.find((s) => s.slug === slug)!)
-                  .map((s) => (
-                    <Link
-                      key={s.slug}
-                      to={`${prefix}/${s.slug}`}
-                      className='group flex items-center justify-between gap-3 rounded-2xl border border-fg/5 bg-ink-800 px-5 py-4 transition hover:border-fire/50'>
-                      <span>
-                        <span className='block text-lg font-bold leading-tight text-fg'>{t(s.name)}</span>
-                        <span className={`mt-1 block text-sm ${startPrice[s.slug] ? 'font-bold text-fire' : 'text-ink-400'}`}>
-                          {price(s.slug)}
+        <div className='grid gap-3 md:grid-cols-2'>
+          {catalogue.map((c, i) =>
+            c.slug === exclude ? null : (
+              <Link
+                key={c.slug}
+                to={`${prefix}/${c.slug}`}
+                className='group flex flex-col rounded-2xl border border-fg/5 bg-ink-800 p-5 transition hover:border-fire/50 md:p-6'>
+                <div className='flex items-baseline gap-3'>
+                  <span className='font-display text-sm font-bold text-fire'>{String(i + 1).padStart(2, '0')}</span>
+                  <h3 className='flex-1 text-xl font-bold text-fg'>{t(c.title)}</h3>
+                  {startPrice[c.slug] && (
+                    <span className='shrink-0 text-sm font-bold text-fire'>{price(c.slug)}</span>
+                  )}
+                </div>
+                <ol className='mt-4 flex-1 space-y-3 border-l border-fg/10 pl-4'>
+                  {c.sections.map((sec, j) => (
+                    <li key={sec.title.uk}>
+                      <div className='text-sm font-bold text-ink-200'>
+                        <span className='mr-2 text-ink-400'>
+                          {i + 1}.{j + 1}
                         </span>
-                      </span>
-                      <ChevronRight className='h-5 w-5 shrink-0 text-ink-400 transition group-hover:translate-x-1 group-hover:text-fire' />
-                    </Link>
+                        {t(sec.title)}
+                      </div>
+                      {sec.items.length > 0 && (
+                        <p className='mt-0.5 text-sm leading-relaxed text-ink-400'>
+                          {sec.items.map((it) => t(it)).join(' · ')}
+                        </p>
+                      )}
+                    </li>
                   ))}
-              </div>
-            </div>
-          ))}
+                </ol>
+                <span className='mt-4 inline-flex items-center gap-1 text-sm font-semibold text-ink-200 group-hover:text-fire'>
+                  {t(ui.more)} <ChevronRight className='h-4 w-4' />
+                </span>
+              </Link>
+            ),
+          )}
         </div>
         <p className='mt-6 text-sm text-ink-400'>{t(priceUi.note)}</p>
         <p className='mt-2 text-sm text-ink-400'>{t(ui.notDo)}</p>

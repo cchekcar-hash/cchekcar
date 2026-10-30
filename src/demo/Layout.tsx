@@ -1,7 +1,7 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Phone, MapPin, Clock, Menu, X, Navigation, Instagram, Facebook, ArrowLeft } from 'lucide-react';
-import { business, services, ui, ui2 } from './content';
+import { Phone, MapPin, Clock, Menu, X, Navigation, ArrowLeft } from 'lucide-react';
+import { business, catalogue, ui, ui2 } from './content';
 import { useLang, track } from './useLang';
 
 export function CallButton({
@@ -74,6 +74,37 @@ export function OpenStatus({ className = '' }: { className?: string }) {
         ? `${t(ui2.openNow)} ${t(ui2.closesAt)}`
         : `${t(ui2.closedNow)} ${opensToday ? t(ui2.openNext) : opensMonday ? t(ui2.openMonday) : t(ui2.openNext)}`}
     </span>
+  );
+}
+
+export function Socials({ className = '' }: { className?: string }) {
+  const links = [
+    { href: business.social.instagram, icon: 'instagram', label: 'Instagram' },
+    { href: business.social.tiktok, icon: 'tiktok', label: 'TikTok' },
+    { href: business.social.facebook, icon: 'facebook', label: 'Facebook' },
+  ];
+  return (
+    <div className={`flex gap-3 ${className}`}>
+      {links.map((l) => (
+        <a
+          key={l.icon}
+          href={l.href}
+          target='_blank'
+          rel='noopener noreferrer'
+          aria-label={l.label}
+          onClick={() => track('social_click', { network: l.icon })}
+          className='flex h-11 w-11 items-center justify-center rounded-xl border border-fg/10 text-ink-200 transition hover:border-fire hover:text-fire'>
+          <span
+            aria-hidden
+            className='block h-5 w-5 bg-current'
+            style={{
+              WebkitMask: `url(/assets/brands/${l.icon}.svg) center / contain no-repeat`,
+              mask: `url(/assets/brands/${l.icon}.svg) center / contain no-repeat`,
+            }}
+          />
+        </a>
+      ))}
+    </div>
   );
 }
 
@@ -225,6 +256,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                 </a>
               ))}
             </nav>
+            <Socials className='mt-5' />
           </div>
         )}
       </header>
@@ -238,22 +270,15 @@ export default function Layout({ children }: { children: ReactNode }) {
           <div>
             <Logo className='text-2xl' />
             <p className='mt-3 text-sm'>{t(ui2.heroText)}</p>
-            <div className='mt-5 flex gap-4'>
-              <a href={business.social.instagram} target='_blank' rel='noopener noreferrer' aria-label='Instagram'>
-                <Instagram className='h-6 w-6 hover:text-fg' />
-              </a>
-              <a href={business.social.facebook} target='_blank' rel='noopener noreferrer' aria-label='Facebook'>
-                <Facebook className='h-6 w-6 hover:text-fg' />
-              </a>
-            </div>
+            <Socials className='mt-5' />
           </div>
           <div>
             <div className='mb-3 font-bold text-fg'>{t(ui.services)}</div>
             <ul className='space-y-1.5 text-sm'>
-              {services.map((s) => (
-                <li key={s.slug}>
-                  <Link to={`${prefix}/${s.slug}`} className='hover:text-fg'>
-                    {t(s.name)}
+              {catalogue.map((c) => (
+                <li key={c.slug}>
+                  <Link to={`${prefix}/${c.slug}`} className='hover:text-fg'>
+                    {t(c.title)}
                   </Link>
                 </li>
               ))}
