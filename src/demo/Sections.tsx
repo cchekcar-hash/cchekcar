@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { MapPin, Clock, CheckCircle2, ChevronRight, Phone, PlayCircle, Star } from 'lucide-react';
 import { advantages, brands, business, catalogue, symptomGroups, google, priceUi, reviewUi, reviews, services, startPrice, steps, ui, ui2, type Faq } from './content';
 import { useLang, track } from './useLang';
-import { CallButton, OpenStatus, RouteButton, Socials } from './Layout';
+import { CallButton, Messengers, OpenStatus, RouteButton, Socials } from './Layout';
 import BookingForm from './BookingForm';
 
 export function Hero({
@@ -49,6 +49,10 @@ export function Hero({
           {t(ui2.bookOnline)} <ChevronRight className='h-4 w-4' />
         </a>
         <p className='mt-4 max-w-md text-sm text-ink-400'>{t(ui2.callHint)}</p>
+        <div className='mt-5 flex flex-wrap items-center gap-3'>
+          <span className='text-sm font-semibold text-ink-200'>{t(ui2.writeUs)}</span>
+          <Messengers compact />
+        </div>
         <p className='mt-6 flex items-start gap-2 text-sm text-ink-200'>
           <MapPin className='mt-0.5 h-4 w-4 shrink-0 text-fire' />
           {t(business.address)}, {t(business.addressNote)}

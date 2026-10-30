@@ -1,6 +1,6 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Phone, MapPin, Clock, Menu, X, Navigation, ArrowLeft } from 'lucide-react';
+import { Phone, MapPin, Clock, Menu, X, Navigation, ArrowLeft, MessageCircle } from 'lucide-react';
 import { business, catalogue, privacy, ui, ui2 } from './content';
 import { useLang, track } from './useLang';
 
@@ -102,6 +102,42 @@ export function Socials({ className = '' }: { className?: string }) {
               mask: `url(/assets/brands/${l.icon}.svg) center / contain no-repeat`,
             }}
           />
+        </a>
+      ))}
+    </div>
+  );
+}
+
+const messengerList = [
+  { id: 'viber', label: 'Viber', color: '#7360f2' },
+  { id: 'telegram', label: 'Telegram', color: '#229ed9' },
+  { id: 'whatsapp', label: 'WhatsApp', color: '#25d366' },
+] as const;
+
+export function Messengers({ className = '', compact = false }: { className?: string; compact?: boolean }) {
+  return (
+    <div className={`flex gap-2 ${className}`}>
+      {messengerList.map((m) => (
+        <a
+          key={m.id}
+          href={business.messengers[m.id]}
+          target='_blank'
+          rel='noopener noreferrer'
+          aria-label={m.label}
+          onClick={() => track('messenger_click', { network: m.id })}
+          style={{ backgroundColor: m.color }}
+          className={`flex items-center justify-center gap-2 rounded-xl font-bold text-white transition hover:opacity-90 ${
+            compact ? 'h-11 w-11' : 'min-w-0 flex-1 px-2 py-3 text-sm'
+          }`}>
+          <span
+            aria-hidden
+            className='block h-5 w-5 bg-white'
+            style={{
+              WebkitMask: `url(/assets/brands/${m.id}.svg) center / contain no-repeat`,
+              mask: `url(/assets/brands/${m.id}.svg) center / contain no-repeat`,
+            }}
+          />
+          {!compact && m.label}
         </a>
       ))}
     </div>
@@ -212,6 +248,7 @@ function BackButton() {
 export default function Layout({ children }: { children: ReactNode }) {
   const { t, prefix, lang, switchPath } = useLang();
   const [open, setOpen] = useState(false);
+  const [writeOpen, setWriteOpen] = useState(false);
   const home = prefix || '/';
 
   const nav = [
@@ -329,6 +366,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                 {business.phoneDisplay}
               </a>
             </p>
+            <Messengers compact className='pt-1' />
           </div>
         </div>
         <div className='border-t border-fg/5 py-5 text-center text-xs'>
@@ -339,22 +377,37 @@ export default function Layout({ children }: { children: ReactNode }) {
         </div>
       </footer>
 
-      {/* Sticky mobile action bar: the call button is always one tap away */}
-      <div className='fixed inset-x-0 bottom-0 z-50 grid grid-cols-[1.4fr_1fr] gap-2 border-t border-fg/10 bg-ink-900/95 p-2 backdrop-blur-xl md:hidden'>
+      {/* Sticky mobile action bar: call, write in a messenger, route */}
+      {writeOpen && (
+        <div className='fixed inset-x-0 bottom-[4.25rem] z-50 border-t border-fg/10 bg-ink-900/95 p-2 backdrop-blur-xl md:hidden'>
+          <Messengers />
+        </div>
+      )}
+      <div className='fixed inset-x-0 bottom-0 z-50 grid grid-cols-[1.3fr_1fr_3.25rem] gap-2 border-t border-fg/10 bg-ink-900/95 p-2 backdrop-blur-xl md:hidden'>
         <a
           href={`tel:${business.phone}`}
           className='flex items-center justify-center gap-2 rounded-xl bg-fire py-3.5 text-base font-extrabold text-white'>
           <Phone className='h-5 w-5' />
           {t(ui.call)}
         </a>
+        <button
+          type='button'
+          onClick={() => setWriteOpen(!writeOpen)}
+          aria-expanded={writeOpen}
+          className={`flex items-center justify-center gap-2 rounded-xl py-3.5 font-bold ${
+            writeOpen ? 'bg-fg text-ink-900' : 'bg-ink-700 text-fg'
+          }`}>
+          <MessageCircle className='h-4 w-4' />
+          {t(ui2.write)}
+        </button>
         <a
           href={business.routeUrl}
           target='_blank'
           rel='noopener noreferrer'
+          aria-label={t(ui.route)}
           onClick={() => track('route_click', { destination: 'google_maps' })}
-          className='flex items-center justify-center gap-2 rounded-xl bg-ink-700 py-3.5 font-bold text-fg'>
-          <Navigation className='h-4 w-4' />
-          {t(ui.route)}
+          className='flex items-center justify-center rounded-xl bg-ink-700 text-fg'>
+          <Navigation className='h-5 w-5' />
         </a>
       </div>
     </div>

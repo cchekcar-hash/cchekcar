@@ -21,11 +21,13 @@ const TIKTOK_ID = import.meta.env.VITE_TIKTOK_PIXEL_ID as string | undefined;
 // Site events -> standard events of each platform
 const metaEvents: Record<string, string> = {
   phone_click: 'Contact',
+  messenger_click: 'Contact',
   booking_form_submit: 'Lead',
   route_click: 'FindLocation',
 };
 const tiktokEvents: Record<string, string> = {
   phone_click: 'Contact',
+  messenger_click: 'Contact',
   booking_form_submit: 'SubmitForm',
   route_click: 'ClickButton',
 };

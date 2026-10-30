@@ -15,6 +15,11 @@ export const business = {
   mapsQuery: 'бульвар Вацлава Гавела 4, Київ',
   routeUrl: 'https://www.google.com/maps/dir/?api=1&destination=%D0%B1%D1%83%D0%BB%D1%8C%D0%B2%D0%B0%D1%80%20%D0%92%D0%B0%D1%86%D0%BB%D0%B0%D0%B2%D0%B0%20%D0%93%D0%B0%D0%B2%D0%B5%D0%BB%D0%B0%204%2C%20%D0%9A%D0%B8%D1%97%D0%B2',
   wazeUrl: 'https://waze.com/ul?q=%D0%B1%D1%83%D0%BB%D1%8C%D0%B2%D0%B0%D1%80%20%D0%92%D0%B0%D1%86%D0%BB%D0%B0%D0%B2%D0%B0%20%D0%93%D0%B0%D0%B2%D0%B5%D0%BB%D0%B0%204%20%D0%9A%D0%B8%D1%97%D0%B2&navigate=yes',
+  messengers: {
+    viber: 'viber://chat?number=%2B380936430070',
+    telegram: 'https://t.me/+380936430070',
+    whatsapp: 'https://wa.me/380936430070',
+  },
   social: {
     instagram: 'https://www.instagram.com/chekcar_kyiv',
     facebook: 'https://www.facebook.com/share/1CdahH69vy/',
@@ -564,6 +569,8 @@ export const ui2 = {
     uk: 'Сервіс розташований на території БЦ Silver Centre, в’їзд з бульвару Вацлава Гавела, 4. Відео нижче показує маршрут до воріт.',
     ru: 'Сервис расположен на территории БЦ Silver Centre, въезд с бульвара Вацлава Гавела, 4. Видео ниже показывает маршрут до ворот.',
   },
+  write: { uk: 'Написати', ru: 'Написать' },
+  writeUs: { uk: 'Або напишіть нам:', ru: 'Или напишите нам:' },
   bookOnline: { uk: 'Або залиште заявку онлайн', ru: 'Или оставьте заявку онлайн' },
   photosTitle: { uk: 'Наш сервіс', ru: 'Наш сервис' },
   socialText: {
