@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, useLocation, useNavigationType } from 're
 import { HomePage, ServicePage } from './demo/pages';
 import NotFound from './pages/NotFound';
 import { useEffect } from 'react';
+import { pixelPageView } from './pixels';
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,10 @@ function ScrollManager() {
   useEffect(() => {
     window.history.scrollRestoration = 'manual';
   }, []);
+
+  useEffect(() => {
+    pixelPageView();
+  }, [pathname]);
 
   useEffect(() => {
     const save = () => positions.set(key, window.scrollY);

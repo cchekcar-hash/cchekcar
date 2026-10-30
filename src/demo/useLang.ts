@@ -1,3 +1,4 @@
+import { pixelTrack } from '../pixels';
 import { useLocation } from 'react-router-dom';
 import type { Lang, T } from './content';
 
@@ -16,4 +17,5 @@ export function track(event: string, params: Record<string, unknown> = {}) {
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({ event, ...params });
   if (typeof window.gtag === 'function') window.gtag('event', event, params);
+  pixelTrack(event, params);
 }

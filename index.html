@@ -92,6 +92,7 @@
           if (typeof gtag === 'function') {
             gtag('event', 'phone_click', { phone_number: link.getAttribute('href') });
           }
+          if (typeof window.pixelTrack === 'function') window.pixelTrack('phone_click');
         },
         true
       );
