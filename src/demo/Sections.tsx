@@ -1,7 +1,7 @@
 import { useState, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Clock, CheckCircle2, ChevronRight, Phone, PlayCircle, Star } from 'lucide-react';
-import { advantages, business, google, priceUi, reviewUi, reviews, serviceGroups, services, startPrice, steps, ui, ui2, type Faq } from './content';
+import { advantages, brands, business, google, priceUi, reviewUi, reviews, serviceGroups, services, startPrice, steps, ui, ui2, type Faq } from './content';
 import { useLang, track } from './useLang';
 import { CallButton, OpenStatus, RouteButton } from './Layout';
 import BookingForm from './BookingForm';
@@ -23,9 +23,9 @@ export function Hero({
 }) {
   const { t } = useLang();
   return (
-    <section className='relative overflow-hidden bg-ink-950'>
-      <img src={image} alt='' className='absolute inset-0 h-full w-full object-cover' loading='eager' fetchPriority='high' />
-      <div className='absolute inset-0 bg-gradient-to-b from-ink-950/70 via-ink-950/75 to-ink-900 md:bg-gradient-to-r md:from-ink-950/95 md:via-ink-950/70 md:to-ink-950/30' />
+    <section className='hero relative overflow-hidden bg-ink-950'>
+      <img src={image} alt='' className='hero-photo absolute inset-0 h-full w-full object-cover' loading='eager' fetchPriority='high' />
+      <div className='hero-photo absolute inset-0 bg-gradient-to-b from-ink-950/70 via-ink-950/75 to-ink-900 md:bg-gradient-to-r md:from-ink-950/95 md:via-ink-950/70 md:to-ink-950/30' />
       <div className='relative mx-auto max-w-6xl px-4 pb-14 pt-10 md:pb-28 md:pt-24'>
         {children}
         <OpenStatus />
@@ -246,6 +246,37 @@ export function Reviews() {
             className='inline-flex shrink-0 items-center justify-center gap-2 rounded-xl border border-fg/15 px-5 py-3 font-bold text-fg hover:bg-fg/5'>
             <Stars n={5} className='h-4 w-4' /> {t(reviewUi.leaveButton)}
           </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Monochrome brand logos (Simple Icons) tinted with the theme colour; scrolls as a marquee
+export function Brands() {
+  const { t } = useLang();
+  const row = brands.map((b) => (
+    <span key={b.slug} className='flex shrink-0 flex-col items-center gap-2 px-5' title={b.name}>
+      <span
+        aria-hidden
+        className='block h-9 w-9 bg-ink-200 md:h-10 md:w-10'
+        style={{
+          WebkitMask: `url(/assets/brands/${b.slug}.svg) center / contain no-repeat`,
+          mask: `url(/assets/brands/${b.slug}.svg) center / contain no-repeat`,
+        }}
+      />
+      <span className='text-xs font-semibold text-ink-400'>{b.name}</span>
+    </span>
+  ));
+  return (
+    <section className='border-b border-fg/5 py-8'>
+      <p className='mb-5 px-4 text-center text-sm font-bold uppercase tracking-wider text-ink-400'>{t(ui2.brandsTitle)}</p>
+      <div className='overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)]'>
+        <div className='brand-marquee flex w-max'>
+          {row}
+          <span aria-hidden className='flex'>
+            {row}
+          </span>
         </div>
       </div>
     </section>

@@ -122,3 +122,32 @@ All colors MUST be HSL.
   --ink-600: 213 217 223; --ink-400: 92 100 112; --ink-200: 44 50 59;
   --fg: 11 13 16; --fire: 240 104 10; --fire-dark: 214 88 0;
 }
+
+/* Background variants (data-bg on <html>) */
+.brand-marquee { animation: brand-marquee 45s linear infinite; }
+@keyframes brand-marquee { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .brand-marquee { animation: none; } }
+
+:root[data-bg='glow'] .hero-photo,
+:root[data-bg='grid'] .hero-photo { display: none; }
+:root[data-bg='glow'] .demo-bg,
+:root[data-bg='grid'] .demo-bg { background-attachment: fixed; }
+:root[data-bg='glow'] .demo-bg {
+  background-image:
+    radial-gradient(60rem 40rem at 85% -10%, rgb(var(--fire) / 0.22), transparent 60%),
+    radial-gradient(50rem 40rem at -10% 40%, rgb(var(--fire) / 0.10), transparent 60%),
+    radial-gradient(40rem 30rem at 110% 90%, rgb(var(--fg) / 0.06), transparent 60%);
+}
+:root[data-bg='grid'] .demo-bg {
+  background-image:
+    radial-gradient(50rem 30rem at 80% 0%, rgb(var(--fire) / 0.18), transparent 60%),
+    linear-gradient(rgb(var(--fg) / 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(var(--fg) / 0.045) 1px, transparent 1px);
+  background-size: auto, 32px 32px, 32px 32px;
+}
+:root[data-bg='glow'] .hero,
+:root[data-bg='grid'] .hero,
+:root[data-bg='glow'] .demo-bg section,
+:root[data-bg='grid'] .demo-bg section { background-color: transparent; }
+:root[data-bg='glow'] .demo-bg section[id='contacts'],
+:root[data-bg='grid'] .demo-bg section[id='contacts'] { background-color: rgb(var(--ink-950) / 0.6); }
