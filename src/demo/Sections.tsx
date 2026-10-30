@@ -1,7 +1,7 @@
 import { useState, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Clock, CheckCircle2, ChevronRight, Phone, PlayCircle, Star } from 'lucide-react';
-import { advantages, brands, business, catalogue, google, priceUi, reviewUi, reviews, services, startPrice, steps, ui, ui2, type Faq } from './content';
+import { advantages, brands, business, catalogue, symptomGroups, google, priceUi, reviewUi, reviews, services, startPrice, steps, ui, ui2, type Faq } from './content';
 import { useLang, track } from './useLang';
 import { CallButton, OpenStatus, RouteButton, Socials } from './Layout';
 import BookingForm from './BookingForm';
@@ -70,30 +70,44 @@ export function SectionTitle({ title, sub }: { title: string; sub?: string }) {
 // Interactive "what's wrong with your car" picker: gives the visitor something to do and leads to a call
 export function SymptomPicker() {
   const { t, prefix } = useLang();
-  const options = services.map((s) => ({ symptom: s.symptoms[0], service: s }));
-  const [picked, setPicked] = useState<number | null>(null);
+  const [group, setGroup] = useState(0);
+  const [picked, setPicked] = useState<string | null>(null);
   const price = usePrice();
-  const match = picked === null ? null : options[picked];
+  const pickedItem = symptomGroups.flatMap((g) => g.items).find((i) => i.text.uk === picked);
+  const match = pickedItem ? services.find((s) => s.slug === pickedItem.slug) : null;
 
   return (
     <section className='border-y border-fg/5 bg-ink-800 py-14'>
       <div className='mx-auto max-w-6xl px-4'>
         <SectionTitle title={t(ui2.pickTitle)} sub={t(ui2.pickText)} />
-        <div className='flex flex-wrap gap-2'>
-          {options.map((o, i) => (
+        <div className='-mx-4 mb-4 flex gap-2 overflow-x-auto px-4 pb-1 [scrollbar-width:none]'>
+          {symptomGroups.map((g, i) => (
             <button
-              key={o.symptom.uk}
+              key={g.title.uk}
+              type='button'
+              onClick={() => setGroup(i)}
+              className={`shrink-0 rounded-xl px-4 py-2.5 text-sm font-bold transition ${
+                group === i ? 'bg-fg text-ink-900' : 'bg-ink-700 text-ink-200 hover:text-fg'
+              }`}>
+              {t(g.title)}
+            </button>
+          ))}
+        </div>
+        <div className='flex flex-wrap gap-2'>
+          {symptomGroups[group].items.map((o) => (
+            <button
+              key={o.text.uk}
               type='button'
               onClick={() => {
-                setPicked(i);
-                track('symptom_pick', { service: o.service.slug });
+                setPicked(o.text.uk);
+                track('symptom_pick', { service: o.slug });
               }}
               className={`rounded-full border px-4 py-2 text-left text-sm font-semibold transition ${
-                picked === i
+                picked === o.text.uk
                   ? 'border-fire bg-fire text-white'
-                  : 'border-fg/10 bg-ink-700 text-ink-200 hover:border-fire/60 hover:text-fg'
+                  : 'border-fg/10 bg-ink-900 text-ink-200 hover:border-fire/60 hover:text-fg'
               }`}>
-              {t(o.symptom)}
+              {t(o.text)}
             </button>
           ))}
         </div>
@@ -101,14 +115,14 @@ export function SymptomPicker() {
           <div className='mt-6 rounded-3xl border border-fire/40 bg-ink-900 p-6 md:flex md:items-center md:justify-between md:gap-8 md:p-8'>
             <div>
               <p className='text-sm font-bold uppercase tracking-wider text-fire'>{t(ui2.pickResult)}</p>
-              <p className='mt-1 font-display text-2xl font-bold text-fg'>{t(match.service.name)}</p>
-              <p className='mt-1 font-bold text-fire'>{price(match.service.slug)}</p>
-              <p className='mt-2 max-w-xl text-ink-400'>{t(match.service.intro)}</p>
+              <p className='mt-1 font-display text-2xl font-bold text-fg'>{t(match.name)}</p>
+              {startPrice[match.slug] && <p className='mt-1 font-bold text-fire'>{price(match.slug)}</p>}
+              <p className='mt-2 max-w-xl text-ink-400'>{t(match.intro)}</p>
             </div>
             <div className='mt-5 flex shrink-0 flex-col gap-2 md:mt-0'>
               <CallButton label={t(ui2.pickCall)} />
               <Link
-                to={`${prefix}/${match.service.slug}`}
+                to={`${prefix}/${match.slug}`}
                 className='inline-flex items-center justify-center gap-1 py-2 font-semibold text-ink-200 hover:text-fg'>
                 {t(ui.more)} <ChevronRight className='h-4 w-4' />
               </Link>
