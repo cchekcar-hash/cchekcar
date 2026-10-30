@@ -580,7 +580,7 @@ export const ui2 = {
 // Starting prices ("від"). Taken from the old site where it had them; null = not confirmed yet, shown as "price by phone"
 export const startPrice: Record<string, number | null> = {
   diagnostyka: 500,
-  'zamina-masla': 600,
+  'zamina-masla': 800,
   'remont-dvyguna': null,
   'remont-kpp': null,
   okholodzhennya: null,
