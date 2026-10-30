@@ -1,6 +1,6 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Phone, MapPin, Clock, Menu, X, Navigation, ArrowLeft, MessageCircle } from 'lucide-react';
+import { Phone, MapPin, Clock, Menu, X, Navigation, ArrowLeft, ArrowUp, MessageCircle } from 'lucide-react';
 import { business, catalogue, privacy, ui, ui2 } from './content';
 import { useLang, track } from './useLang';
 
@@ -245,6 +245,31 @@ function BackButton() {
   );
 }
 
+const topLabel = { uk: 'Нагору', ru: 'Наверх' };
+
+// Scroll-to-top arrow: appears after scrolling down, bottom-right above the mobile bar
+function ToTopButton({ hidden }: { hidden: boolean }) {
+  const { t } = useLang();
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setShow(window.scrollY > 600);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+  if (!show || hidden) return null;
+  return (
+    <button
+      type='button'
+      aria-label={t(topLabel)}
+      title={t(topLabel)}
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      className='fixed bottom-[4.75rem] right-3 z-50 inline-flex h-11 w-11 items-center justify-center rounded-full border border-fg/10 bg-ink-800/95 text-fg shadow-lg backdrop-blur hover:border-fire/60 hover:text-fire md:bottom-6 md:right-6 md:h-12 md:w-12'>
+      <ArrowUp className='h-5 w-5' />
+    </button>
+  );
+}
+
 export default function Layout({ children }: { children: ReactNode }) {
   const { t, prefix, lang, switchPath } = useLang();
   const [open, setOpen] = useState(false);
@@ -322,6 +347,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       <main>{children}</main>
       <StyleSwitcher />
       <BackButton />
+      <ToTopButton hidden={writeOpen} />
 
       <footer className='border-t border-fg/5 bg-ink-950 text-ink-400'>
         <div className='mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-3'>
