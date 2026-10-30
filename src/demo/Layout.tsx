@@ -152,81 +152,6 @@ export function Logo({ className = '' }: { className?: string }) {
   );
 }
 
-const styles = [
-  { id: 'dark', label: { uk: 'Темний', ru: 'Тёмный' } },
-  { id: 'blue', label: { uk: 'Синій', ru: 'Синий' } },
-  { id: 'light', label: { uk: 'Світлий', ru: 'Светлый' } },
-];
-
-const backgrounds = [
-  { id: 'photo', label: { uk: 'Фото', ru: 'Фото' } },
-  { id: 'glow', label: { uk: 'Світло', ru: 'Свет' } },
-  { id: 'grid', label: { uk: 'Креслення', ru: 'Чертёж' } },
-];
-
-function initial(param: string, options: { id: string }[]) {
-  const fromUrl = new URLSearchParams(window.location.search).get(param);
-  if (fromUrl && options.some((o) => o.id === fromUrl)) return fromUrl;
-  try {
-    return localStorage.getItem(`demo-${param}`) ?? options[0].id;
-  } catch {
-    return options[0].id;
-  }
-}
-
-function usePersisted(param: 'style' | 'bg', options: { id: string }[]) {
-  const [value, setValue] = useState(() => initial(param, options));
-  useEffect(() => {
-    document.documentElement.dataset[param] = value;
-    try {
-      localStorage.setItem(`demo-${param}`, value);
-    } catch {
-      /* storage unavailable */
-    }
-  }, [param, value]);
-  return [value, setValue] as const;
-}
-
-// Demo-only switcher so the owner can compare colour and background variants on a phone
-function StyleSwitcher() {
-  const { t } = useLang();
-  const [style, setStyle] = usePersisted('style', styles);
-  const [bg, setBg] = usePersisted('bg', backgrounds);
-  const [open, setOpen] = useState(false);
-  const pill = (active: boolean) =>
-    `whitespace-nowrap rounded-full px-2.5 py-1 ${active ? 'bg-fire text-white' : 'text-ink-200'}`;
-  if (!open)
-    return (
-      <button
-        type='button'
-        onClick={() => setOpen(true)}
-        className='fixed right-2 top-[4.5rem] z-30 rounded-full border border-fg/10 bg-ink-800/90 px-3 py-1.5 text-[11px] font-bold text-ink-200 shadow-lg backdrop-blur'>
-        🎨 {t({ uk: 'Стиль', ru: 'Стиль' })}
-      </button>
-    );
-  return (
-    <div className='fixed right-2 top-[4.5rem] z-30 flex flex-col items-end gap-1 rounded-2xl border border-fg/10 bg-ink-800/90 p-1 text-[11px] font-bold shadow-lg backdrop-blur'>
-      <div className='flex gap-0.5'>
-        {styles.map((s) => (
-          <button key={s.id} type='button' onClick={() => setStyle(s.id)} className={pill(style === s.id)}>
-            {t(s.label)}
-          </button>
-        ))}
-        <button type='button' onClick={() => setOpen(false)} className='px-2 text-ink-400' aria-label='Close'>
-          ✕
-        </button>
-      </div>
-      <div className='flex gap-0.5'>
-        {backgrounds.map((b) => (
-          <button key={b.id} type='button' onClick={() => setBg(b.id)} className={pill(bg === b.id)}>
-            {t(b.label)}
-          </button>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 const backLabel = { uk: 'Назад', ru: 'Назад' };
 
 // Back button: shown after moving between pages inside the site, returns to the same scroll position
@@ -345,7 +270,6 @@ export default function Layout({ children }: { children: ReactNode }) {
       </header>
 
       <main>{children}</main>
-      <StyleSwitcher />
       <BackButton />
       <ToTopButton hidden={writeOpen} />
 
