@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { MapPin, Clock, CheckCircle2, ChevronRight, Phone, PlayCircle, Star } from 'lucide-react';
 import { advantages, brands, business, catalogue, google, priceUi, reviewUi, reviews, services, startPrice, steps, ui, ui2, type Faq } from './content';
 import { useLang, track } from './useLang';
-import { CallButton, OpenStatus, RouteButton } from './Layout';
+import { CallButton, OpenStatus, RouteButton, Socials } from './Layout';
 import BookingForm from './BookingForm';
 
 export function Hero({
@@ -187,7 +187,13 @@ export function Gallery() {
   return (
     <section className='py-16'>
       <div className='mx-auto max-w-6xl px-4'>
-        <SectionTitle title={t(ui2.photosTitle)} />
+        <div className='mb-8 flex flex-wrap items-end justify-between gap-4 md:mb-10'>
+          <div>
+            <h2 className='font-display text-2xl font-bold text-fg md:text-4xl'>{t(ui2.photosTitle)}</h2>
+            <p className='mt-2 text-ink-400'>{t(ui2.socialText)}</p>
+          </div>
+          <Socials />
+        </div>
       </div>
       <div className='flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-4 [scrollbar-width:none] md:mx-auto md:max-w-6xl'>
         {photos.map((src) => (

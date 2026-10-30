@@ -225,6 +225,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           </nav>
 
           <div className='flex items-center gap-2'>
+            <Socials className='hidden scale-90 lg:flex' />
             <Link
               to={switchPath}
               className='rounded-lg border border-fg/15 px-2.5 py-1 text-xs font-bold uppercase text-ink-200 hover:text-fg'
