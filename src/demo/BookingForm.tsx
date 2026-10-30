@@ -64,6 +64,9 @@ export default function BookingForm({ defaultService = '' }: { defaultService?: 
         }
         autoComplete='tel'
       />
+      {form.phone.length > 0 && !phoneOk && (
+        <p className='-mt-1 text-sm text-ink-400'>{t(ui.phoneHint)}</p>
+      )}
       <input
         className={input}
         placeholder={t(ui.car)}

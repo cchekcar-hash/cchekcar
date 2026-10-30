@@ -242,13 +242,13 @@ export default function Layout({ children }: { children: ReactNode }) {
             <Socials className='hidden scale-90 xl:flex' />
             <a
               href={`tel:${business.phone}`}
-              className='flex items-center gap-1 whitespace-nowrap text-sm font-extrabold text-fg sm:hidden'>
+              className='flex items-center gap-1 whitespace-nowrap py-3 text-sm font-extrabold text-fg sm:hidden'>
               <Phone className='h-4 w-4 text-fire' />
               093 643-00-70
             </a>
             <Link
               to={switchPath}
-              className='rounded-lg border border-fg/15 px-2.5 py-1 text-xs font-bold uppercase text-ink-200 hover:text-fg'
+              className='rounded-lg border border-fg/15 px-2.5 py-2 text-xs font-bold uppercase text-ink-200 hover:text-fg'
               aria-label='Мова / Язык'>
               {lang === 'ru' ? 'UA' : 'RU'}
             </Link>
