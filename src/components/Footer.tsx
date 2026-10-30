@@ -10,8 +10,8 @@ const Footer = () => {
           <div>
             <div className='text-2xl font-bold text-brand-orange mb-4'>ChekCar</div>
             <p className='text-gray-300 mb-4'>
-              Ваш надійний автосервіс у Києві. Обслуговування авто будь-якої марки з гарантією 12
-              місяців.
+              Автосервіс у Києві. Діагностика та ремонт авто будь-якої марки. Точна ціна до початку
+              робіт.
             </p>
             <div className='flex space-x-4'>
               <a
@@ -60,11 +60,6 @@ const Footer = () => {
                   Діагностика
                 </a>
               </li>
-              <li>
-                <a href='#services' className='hover:text-brand-orange transition-colors'>
-                  Шиномонтаж
-                </a>
-              </li>
             </ul>
           </div>
 
@@ -74,7 +69,7 @@ const Footer = () => {
             <div className='space-y-3 text-gray-300'>
               <div className='flex items-center'>
                 <MapPin className='h-4 w-4 mr-2 shrink-0' />
-                <span>вулиця Вацлава Гавела, 4 (на території БЦ), Київ</span>
+                <span>бульвар Вацлава Гавела, 4 (на території БЦ), Київ</span>
               </div>
               <div className='flex items-center'>
                 <Phone className='h-4 w-4 mr-2 shrink-0' />
@@ -100,11 +95,8 @@ const Footer = () => {
               <div className='flex items-center'>
                 <Clock className='h-4 w-4 mr-2 shrink-0' />
                 <div>
-                  <p>Пн-Пт: 9:00 - 20:00</p>
-                  <p>Сб - Нд: 10:00 - 20:00</p>
-                  {/* <p>Пн-Пт: 09:00 - 19:00</p>
-                  <p>Сб: за домовленістю</p>
-                  <p>Нд: вихідний</p> */}
+                  <p>Пн-Пт: 10:00 - 19:00</p>
+                  <p>Сб - Нд: вихідний</p>
                 </div>
               </div>
             </div>

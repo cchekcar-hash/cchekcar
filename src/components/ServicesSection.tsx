@@ -1,11 +1,11 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Wrench, Settings, Thermometer, Target, Stethoscope, CircleDot, Car } from 'lucide-react';
+import { Wrench, Settings, Thermometer, Target, Stethoscope, Car } from 'lucide-react';
 
 const services = [
   {
     icon: Wrench,
     title: 'Заміна моторної оливи',
-    description: 'Повна заміна масла + фільтра за 30 хвилин',
+    description: 'Заміна масла та фільтрів у двигуні та коробці передач',
     price: 'від 600 грн',
     idCard: 'changing-engine-oil',
   },
@@ -26,7 +26,7 @@ const services = [
   {
     icon: Settings,
     title: 'Ремонт двигуна',
-    description: 'Повний ремонт двигуна з діагностикою та гарантією',
+    description: 'Повний ремонт двигуна з діагностикою. Двигуни BMW – наш профіль',
     price: 'від 40000 грн',
     idCard: 'engine-repair',
   },
@@ -44,13 +44,6 @@ const services = [
     price: 'від 1800 грн',
     idCard: 'comprehensive-diagnostics',
   },
-  {
-    icon: CircleDot,
-    title: 'Шиномонтаж',
-    description: 'Заміна, балансування, ремонт коліс',
-    price: 'від 400 грн',
-    idCard: 'tire-fitting',
-  },
 ];
 
 const ServicesSection = () => {
@@ -60,8 +53,8 @@ const ServicesSection = () => {
         <div className='text-center mb-16'>
           <h2 className='text-4xl md:text-5xl font-bold text-text-dark mb-6'>Наші послуги</h2>
           <p className='text-xl text-text-light max-w-3xl mx-auto'>
-            Професійне обслуговування автомобілів будь-якої марки з використанням сучасного
-            обладнання та оригінальних запчастин
+            Діагностика та ремонт автомобілів будь-якої марки. Показуємо несправність наочно та
+            повертаємо старі запчастини
           </p>
         </div>
 
