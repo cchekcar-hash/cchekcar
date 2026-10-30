@@ -40,7 +40,7 @@ export function Hero({
           </p>
         )}
         <div className='mt-8 flex flex-col gap-3 sm:flex-row'>
-          <CallButton pulse />
+          <CallButton pulse label='093 643-00-70' />
           <RouteButton />
         </div>
         <a

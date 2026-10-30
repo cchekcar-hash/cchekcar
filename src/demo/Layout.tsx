@@ -20,7 +20,7 @@ export function CallButton({
       className={`relative inline-flex items-center justify-center gap-2 rounded-2xl bg-fire px-6 py-4 text-lg font-extrabold text-white shadow-lg shadow-fire/40 transition hover:bg-fire-dark ${className}`}>
       {pulse && <span className='absolute inset-0 animate-ping rounded-2xl bg-fire opacity-20' />}
       <Phone className='relative h-5 w-5' />
-      <span className='relative'>{label ?? t(ui.call)}</span>
+      <span className='relative whitespace-nowrap'>{label ?? t(ui.call)}</span>
     </a>
   );
 }
@@ -239,7 +239,13 @@ export default function Layout({ children }: { children: ReactNode }) {
           </nav>
 
           <div className='flex items-center gap-2'>
-            <Socials className='hidden scale-90 lg:flex' />
+            <Socials className='hidden scale-90 xl:flex' />
+            <a
+              href={`tel:${business.phone}`}
+              className='flex items-center gap-1 whitespace-nowrap text-sm font-extrabold text-fg sm:hidden'>
+              <Phone className='h-4 w-4 text-fire' />
+              093 643-00-70
+            </a>
             <Link
               to={switchPath}
               className='rounded-lg border border-fg/15 px-2.5 py-1 text-xs font-bold uppercase text-ink-200 hover:text-fg'
