@@ -191,6 +191,8 @@ function StyleSwitcher() {
   );
 }
 
+const backLabel = { uk: 'Назад', ru: 'Назад' };
+
 // Back button: shown after moving between pages inside the site, returns to the same scroll position
 function BackButton() {
   const { t } = useLang();
