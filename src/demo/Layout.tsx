@@ -55,11 +55,14 @@ function kyivNow() {
 
 export function OpenStatus({ className = '' }: { className?: string }) {
   const { t } = useLang();
-  const [now, setNow] = useState(kyivNow);
+  // Starts empty so the prerendered HTML never carries a stale open/closed status
+  const [now, setNow] = useState<ReturnType<typeof kyivNow> | null>(null);
   useEffect(() => {
+    setNow(kyivNow());
     const id = setInterval(() => setNow(kyivNow()), 60_000);
     return () => clearInterval(id);
   }, []);
+  if (!now) return null;
   const weekday = !['Sat', 'Sun'].includes(now.day);
   const open = weekday && now.minutes >= 600 && now.minutes < 1140;
   const opensToday = weekday && now.minutes < 600;
