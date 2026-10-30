@@ -2,9 +2,8 @@ import { Toaster } from '@/components/ui/toaster';
 import { Toaster as Sonner } from '@/components/ui/sonner';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { BrowserRouter, Routes, Route, useLocation, useNavigationType } from 'react-router-dom';
-import { HomePage, ServicePage } from './demo/pages';
-import NotFound from './pages/NotFound';
+import { BrowserRouter, Navigate, Routes, Route, useLocation, useNavigationType } from 'react-router-dom';
+import { HomePage, PrivacyPage, ServicePage } from './demo/pages';
 import { useEffect } from 'react';
 import { pixelPageView } from './pixels';
 
@@ -53,10 +52,12 @@ const App = () => (
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/ru' element={<HomePage />} />
+          <Route path='/privacy' element={<PrivacyPage />} />
+          <Route path='/ru/privacy' element={<PrivacyPage />} />
           <Route path='/ru/:slug' element={<ServicePage />} />
           <Route path='/:slug' element={<ServicePage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path='*' element={<NotFound />} />
+          <Route path='*' element={<Navigate to='/' replace />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

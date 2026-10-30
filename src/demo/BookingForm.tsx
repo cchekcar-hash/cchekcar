@@ -1,9 +1,10 @@
 import { useState, type FormEvent } from 'react';
-import { services, ui } from './content';
+import { Link } from 'react-router-dom';
+import { privacy, services, ui } from './content';
 import { useLang, track } from './useLang';
 
 export default function BookingForm({ defaultService = '' }: { defaultService?: string }) {
-  const { t } = useLang();
+  const { t, prefix } = useLang();
   const [form, setForm] = useState({ name: '', phone: '', car: '', service: defaultService });
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
 
@@ -91,6 +92,13 @@ export default function BookingForm({ defaultService = '' }: { defaultService?: 
         className='w-full rounded-xl bg-fg py-4 text-lg font-bold text-ink-900 transition hover:opacity-90 disabled:opacity-60'>
         {status === 'sending' ? t(ui.sending) : t(ui.send)}
       </button>
+      <p className='text-xs text-ink-400'>
+        {t(privacy.consent)}{' '}
+        <Link to={`${prefix}/privacy`} className='underline hover:text-fg'>
+          {t(privacy.consentLink)}
+        </Link>
+        .
+      </p>
       {status === 'sent' && <p className='font-semibold text-emerald-400'>{t(ui.sent)}</p>}
       {status === 'error' && <p className='font-semibold text-red-400'>{t(ui.sendError)}</p>}
     </form>

@@ -48,12 +48,7 @@ export function Hero({
           className='mt-4 inline-flex items-center gap-1 font-bold text-fg underline decoration-fire decoration-2 underline-offset-4'>
           {t(ui2.bookOnline)} <ChevronRight className='h-4 w-4' />
         </a>
-        <p className='mt-4 max-w-md text-sm text-ink-400'>
-          <a href={`tel:${business.phone}`} className='font-bold text-fg'>
-            {business.phoneDisplay}
-          </a>{' '}
-          · {t(ui2.callHint)}
-        </p>
+        <p className='mt-4 max-w-md text-sm text-ink-400'>{t(ui2.callHint)}</p>
         <p className='mt-6 flex items-start gap-2 text-sm text-ink-200'>
           <MapPin className='mt-0.5 h-4 w-4 shrink-0 text-fire' />
           {t(business.address)}, {t(business.addressNote)}
@@ -181,7 +176,7 @@ export function ServicesGrid({ exclude }: { exclude?: string }) {
                         {t(sec.title)}
                       </div>
                       {sec.items.length > 0 && (
-                        <p className='mt-0.5 text-sm leading-relaxed text-ink-400'>
+                        <p className='mt-0.5 hidden text-sm leading-relaxed text-ink-400 md:block'>
                           {sec.items.map((it) => t(it)).join(' · ')}
                         </p>
                       )}

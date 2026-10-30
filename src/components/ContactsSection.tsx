@@ -125,7 +125,7 @@ const ContactsSection = () => {
             controls
             preload='metadata'
             poster='assets/сто.jpg'>
-            <source src='assets/stoMini.mp4' type='video/mp4' />
+            <source src='/assets/opt/route.mp4' type='video/mp4' />
             Ваш браузер не поддерживает видео.
           </video>
         </div>

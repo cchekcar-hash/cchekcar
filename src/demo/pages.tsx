@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { CheckCircle2, AlertTriangle } from 'lucide-react';
-import { commonFaq, services, startPrice, ui, ui2 } from './content';
+import { commonFaq, privacy, services, startPrice, ui, ui2 } from './content';
 import { useLang } from './useLang';
 import Layout from './Layout';
 import Seo from './Seo';
@@ -103,6 +103,26 @@ export function ServicePage() {
       <FaqBlock items={items} />
       <ContactsAndBooking defaultService={t(service.name)} />
       <ServicesGrid exclude={service.slug} />
+    </Layout>
+  );
+}
+
+export function PrivacyPage() {
+  const { t, lang, bare } = useLang();
+  return (
+    <Layout>
+      <Seo lang={lang} bare={bare} title={`${t(privacy.title)} | СТО ChekCar`} description={t(privacy.sections[0].p)} />
+      <section className='py-14'>
+        <div className='mx-auto max-w-3xl px-4'>
+          <h1 className='font-display text-3xl font-bold text-fg md:text-4xl'>{t(privacy.title)}</h1>
+          {privacy.sections.map((sec) => (
+            <div key={sec.h.uk} className='mt-8'>
+              <h2 className='text-xl font-bold text-fg'>{t(sec.h)}</h2>
+              <p className='mt-2 leading-relaxed text-ink-200'>{t(sec.p)}</p>
+            </div>
+          ))}
+        </div>
+      </section>
     </Layout>
   );
 }

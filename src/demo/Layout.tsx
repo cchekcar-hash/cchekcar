@@ -1,7 +1,7 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Phone, MapPin, Clock, Menu, X, Navigation, ArrowLeft } from 'lucide-react';
-import { business, catalogue, ui, ui2 } from './content';
+import { business, catalogue, privacy, ui, ui2 } from './content';
 import { useLang, track } from './useLang';
 
 export function CallButton({
@@ -331,7 +331,12 @@ export default function Layout({ children }: { children: ReactNode }) {
             </p>
           </div>
         </div>
-        <div className='border-t border-fg/5 py-5 text-center text-xs'>© {new Date().getFullYear()} ChekCar</div>
+        <div className='border-t border-fg/5 py-5 text-center text-xs'>
+          © {new Date().getFullYear()} ChekCar ·{' '}
+          <Link to={`${prefix}/privacy`} className='underline hover:text-fg'>
+            {t(privacy.title)}
+          </Link>
+        </div>
       </footer>
 
       {/* Sticky mobile action bar: the call button is always one tap away */}
