@@ -70,7 +70,7 @@ export function SectionTitle({ title, sub }: { title: string; sub?: string }) {
 // Interactive "what's wrong with your car" picker: gives the visitor something to do and leads to a call
 export function SymptomPicker() {
   const { t, prefix } = useLang();
-  const options = services.slice(0, 7).map((s) => ({ symptom: s.symptoms[0], service: s }));
+  const options = services.map((s) => ({ symptom: s.symptoms[0], service: s }));
   const [picked, setPicked] = useState<number | null>(null);
   const price = usePrice();
   const match = picked === null ? null : options[picked];
