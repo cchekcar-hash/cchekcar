@@ -85,7 +85,10 @@ export function SymptomPicker() {
             <button
               key={g.title.uk}
               type='button'
-              onClick={() => setGroup(i)}
+              onClick={() => {
+                setGroup(i);
+                setPicked(null);
+              }}
               className={`shrink-0 rounded-xl px-4 py-2.5 text-sm font-bold transition ${
                 group === i ? 'bg-fg text-ink-900' : 'bg-ink-700 text-ink-200 hover:text-fg'
               }`}>

@@ -156,8 +156,18 @@ function StyleSwitcher() {
   const { t } = useLang();
   const [style, setStyle] = usePersisted('style', styles);
   const [bg, setBg] = usePersisted('bg', backgrounds);
+  const [open, setOpen] = useState(false);
   const pill = (active: boolean) =>
     `whitespace-nowrap rounded-full px-2.5 py-1 ${active ? 'bg-fire text-white' : 'text-ink-200'}`;
+  if (!open)
+    return (
+      <button
+        type='button'
+        onClick={() => setOpen(true)}
+        className='fixed right-2 top-[4.5rem] z-30 rounded-full border border-fg/10 bg-ink-800/90 px-3 py-1.5 text-[11px] font-bold text-ink-200 shadow-lg backdrop-blur'>
+        🎨 {t({ uk: 'Стиль', ru: 'Стиль' })}
+      </button>
+    );
   return (
     <div className='fixed right-2 top-[4.5rem] z-30 flex flex-col items-end gap-1 rounded-2xl border border-fg/10 bg-ink-800/90 p-1 text-[11px] font-bold shadow-lg backdrop-blur'>
       <div className='flex gap-0.5'>
@@ -166,6 +176,9 @@ function StyleSwitcher() {
             {t(s.label)}
           </button>
         ))}
+        <button type='button' onClick={() => setOpen(false)} className='px-2 text-ink-400' aria-label='Close'>
+          ✕
+        </button>
       </div>
       <div className='flex gap-0.5'>
         {backgrounds.map((b) => (
@@ -177,8 +190,6 @@ function StyleSwitcher() {
     </div>
   );
 }
-
-const backLabel = { uk: 'Назад', ru: 'Назад' };
 
 // Back button: shown after moving between pages inside the site, returns to the same scroll position
 function BackButton() {
