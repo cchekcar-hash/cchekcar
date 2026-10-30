@@ -43,6 +43,11 @@ export function Hero({
           <CallButton pulse />
           <RouteButton />
         </div>
+        <a
+          href='#booking'
+          className='mt-4 inline-flex items-center gap-1 font-bold text-fg underline decoration-fire decoration-2 underline-offset-4'>
+          {t(ui2.bookOnline)} <ChevronRight className='h-4 w-4' />
+        </a>
         <p className='mt-4 max-w-md text-sm text-ink-400'>
           <a href={`tel:${business.phone}`} className='font-bold text-fg'>
             {business.phoneDisplay}

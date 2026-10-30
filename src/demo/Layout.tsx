@@ -218,6 +218,7 @@ export default function Layout({ children }: { children: ReactNode }) {
     { href: `${home}#services`, label: t(ui.services) },
     { href: `${home}#how`, label: t(ui.howWeWork) },
     { href: `${home}#why`, label: t(ui.whyUs) },
+    { href: `${home}#booking`, label: t(ui.book) },
     { href: `${home}#contacts`, label: t(ui.contacts) },
   ];
 
