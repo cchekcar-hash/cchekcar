@@ -105,3 +105,20 @@ All colors MUST be HSL.
 :target {
   scroll-margin-top: 10vh;
 }
+
+/* Demo style variants, switched via data-style on <html> */
+:root {
+  --ink-950: 11 13 16; --ink-900: 17 20 24; --ink-800: 24 28 33; --ink-700: 33 38 45;
+  --ink-600: 44 50 59; --ink-400: 139 147 158; --ink-200: 213 217 223;
+  --fg: 255 255 255; --fire: 255 122 26; --fire-dark: 229 101 10;
+}
+:root[data-style='blue'] {
+  --ink-950: 6 11 22; --ink-900: 11 19 36; --ink-800: 17 27 48; --ink-700: 26 38 64;
+  --ink-600: 36 50 79; --ink-400: 138 152 179; --ink-200: 211 219 234;
+  --fire: 47 128 255; --fire-dark: 31 102 221;
+}
+:root[data-style='light'] {
+  --ink-950: 236 238 242; --ink-900: 255 255 255; --ink-800: 245 246 248; --ink-700: 232 234 238;
+  --ink-600: 213 217 223; --ink-400: 92 100 112; --ink-200: 44 50 59;
+  --fg: 11 13 16; --fire: 240 104 10; --fire-dark: 214 88 0;
+}

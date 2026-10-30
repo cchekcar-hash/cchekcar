@@ -41,7 +41,7 @@ export default function BookingForm({ defaultService = '' }: { defaultService?: 
   };
 
   const input =
-    'w-full rounded-xl border border-border bg-white px-4 py-3 text-base outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20';
+    'w-full rounded-xl border border-fg/10 bg-ink-900 px-4 py-3 text-base text-fg placeholder:text-ink-400 outline-none focus:border-fire focus:ring-2 focus:ring-fire/30';
 
   return (
     <form onSubmit={submit} className='space-y-3'>
@@ -85,11 +85,11 @@ export default function BookingForm({ defaultService = '' }: { defaultService?: 
       <button
         type='submit'
         disabled={status === 'sending' || !phoneOk}
-        className='w-full rounded-xl bg-brand-blue py-4 text-lg font-bold text-white transition hover:bg-brand-blue-dark disabled:opacity-60'>
+        className='w-full rounded-xl bg-fg py-4 text-lg font-bold text-ink-900 transition hover:opacity-90 disabled:opacity-60'>
         {status === 'sending' ? t(ui.sending) : t(ui.send)}
       </button>
-      {status === 'sent' && <p className='font-semibold text-green-700'>{t(ui.sent)}</p>}
-      {status === 'error' && <p className='font-semibold text-red-600'>{t(ui.sendError)}</p>}
+      {status === 'sent' && <p className='font-semibold text-emerald-400'>{t(ui.sent)}</p>}
+      {status === 'error' && <p className='font-semibold text-red-400'>{t(ui.sendError)}</p>}
     </form>
   );
 }

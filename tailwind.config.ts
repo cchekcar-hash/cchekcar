@@ -18,7 +18,14 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				display: ['Unbounded', 'system-ui', 'sans-serif'],
+				body: ['Manrope', 'system-ui', 'sans-serif'],
+			},
 			colors: {
+				ink: { 950: 'rgb(var(--ink-950) / <alpha-value>)', 900: 'rgb(var(--ink-900) / <alpha-value>)', 800: 'rgb(var(--ink-800) / <alpha-value>)', 700: 'rgb(var(--ink-700) / <alpha-value>)', 600: 'rgb(var(--ink-600) / <alpha-value>)', 400: 'rgb(var(--ink-400) / <alpha-value>)', 200: 'rgb(var(--ink-200) / <alpha-value>)' },
+				fg: 'rgb(var(--fg) / <alpha-value>)',
+				fire: { DEFAULT: 'rgb(var(--fire) / <alpha-value>)', dark: 'rgb(var(--fire-dark) / <alpha-value>)' },
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
