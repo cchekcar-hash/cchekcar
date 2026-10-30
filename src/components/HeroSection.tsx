@@ -38,22 +38,12 @@ const HeroSection = () => {
           </ul> */}
 
           <p className='text-xl md:text-2xl text-text-light mb-8 max-w-4xl mx-auto margTopText margTopBottomNone'>
-            Обслуговування авто будь-якої марки з гарантією{' '}
-            <strong> 3 місяці або 20 000 км </strong>
+            Діагностика та ремонт авто будь-якої марки.{' '}
+            <strong>Точна ціна до початку робіт.</strong>
           </p>
           <p className='text-xl md:text-2xl text-text-light mb-8 max-w-4xl mx-auto margTopText smallText'>
             Потрібен ремонт авто, дзвони нам!
           </p>
-
-          {/* Special Offer Banner */}
-          <div className='bg-gradient-accent rounded-xl p-6 mb-8 text-white displayNone'>
-            <h2 className='text-2xl md:text-3xl font-bold mb-2'>
-              🔥 -15% на перший візит для нових клієнтів до кінця місяця!
-            </h2>
-            <p className='text-lg opacity-90'>
-              Знижка діє на всі види послуг при першому відвідуванні
-            </p>
-          </div>
 
           <div className='flex flex-col sm:flex-row gap-4 justify-center items-center flexWrap'>
             <a href='tel:+380936430070'>
@@ -104,7 +94,7 @@ const HeroSection = () => {
               onClick={() =>
                 document.getElementById('contactsMap')?.scrollIntoView({ behavior: 'smooth' })
               }>
-              вулиця Вацлава Гавела, 4 (на території БЦ Silver Cetre) Київ, Україна
+              бульвар Вацлава Гавела, 4 (на території БЦ Silver Centre) Київ, Україна
             </p>
           </div>
         </div>

@@ -42,7 +42,7 @@ const ContactsSection = () => {
                   <div>
                     <h3 className='font-bold text-text-dark text-lg mb-2'>Адреса</h3>
                     <p className='text-text-light'>
-                      вулиця Вацлава Гавела, 4 (на території БЦ Silver Cetre)
+                      бульвар Вацлава Гавела, 4 (на території БЦ Silver Centre)
                       <br />
                       Київ, Україна
                     </p>
@@ -89,8 +89,8 @@ const ContactsSection = () => {
                   <div>
                     <h3 className='font-bold text-text-dark text-lg mb-2'>Графік роботи</h3>
                     <div className='space-y-1 text-text-light'>
-                      <p>Понеділок - П'ятниця: 9:00 - 20:00</p>
-                      <p>Субота - Неділя: 10:00 - 20:00</p>
+                      <p>Понеділок - П'ятниця: 10:00 - 19:00</p>
+                      <p>Субота - Неділя: вихідний</p>
                       {/* <p>: вихідний</p> */}
                     </div>
                   </div>

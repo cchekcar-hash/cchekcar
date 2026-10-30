@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ChekCar - Надійний автосервіс у Києві | Гарантія 12 місяців</title>
+    <title>СТО ChekCar у Києві – діагностика та ремонт авто | бул. Вацлава Гавела, 4</title>
     <link
       rel="icon"
       href="assets/baskerville-old-face-i-bookman-old-stile.webp"
@@ -11,21 +11,21 @@
     />
     <meta
       name="description"
-      content="ChekCar - професійний автосервіс у Києві. Обслуговування авто будь-якої марки з гарантією 12 місяців. -20% для нових клієнтів. Записатися онлайн!"
+      content="СТО ChekCar на бул. Вацлава Гавела, 4, Київ. Діагностика, ремонт двигуна, КПП, ходової, гальм, заміна мастила. Точна ціна до початку робіт. Пн–Пт 10:00–19:00. ☎ 093 643 00 70"
     />
     <meta name="author" content="ChekCar Автосервіс" />
     <meta
       name="keywords"
-      content="автосервіс Київ, ремонт авто, діагностика авто, заміна оливи, шиномонтаж, розвал-сходження"
+      content="СТО Київ, автосервіс Київ, ремонт авто, діагностика авто, ремонт двигуна, ремонт КПП, ремонт ходової, заміна мастила"
     />
 
     <meta
       property="og:title"
-      content="ChekCar - Надійний автосервіс у Києві | Гарантія 12 місяців"
+      content="СТО ChekCar у Києві – діагностика та ремонт авто"
     />
     <meta
       property="og:description"
-      content="Професійне обслуговування авто будь-якої марки з гарантією 12 місяців. -20% для нових клієнтів!"
+      content="Бул. Вацлава Гавела, 4. Точна ціна до початку робіт, показуємо несправність наочно, повертаємо старі запчастини."
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="assets/baskerville-old-face-i-bookman-old-stile.webp" />
@@ -72,17 +72,21 @@
       })(window, document, 'script', 'dataLayer', 'GTM-K3V5Z2XC');
     </script>
     <!-- End Google Tag Manager -->
-
-    <script type="text/javascript">
-      (function (d, w, s) {
-        var widgetHash = 'y4we6ld8ntguvwr26p1y',
-          ctw = d.createElement(s);
-        ctw.type = 'text/javascript';
-        ctw.async = true;
-        ctw.src = '//widgets.binotel.com/calltracking/widgets/' + widgetHash + '.js';
-        var sn = d.getElementsByTagName(s)[0];
-        sn.parentNode.insertBefore(ctw, sn);
-      })(document, window, 'script');
+    <!-- Phone click tracking: sends a phone_click event to Google tags -->
+    <script>
+      document.addEventListener(
+        'click',
+        function (e) {
+          var link = e.target && e.target.closest ? e.target.closest('a[href^="tel:"]') : null;
+          if (!link) return;
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: 'phone_click', phone_number: link.getAttribute('href') });
+          if (typeof gtag === 'function') {
+            gtag('event', 'phone_click', { phone_number: link.getAttribute('href') });
+          }
+        },
+        true
+      );
     </script>
   </head>
 
@@ -97,18 +101,6 @@
       ></iframe
     ></noscript>
     <!-- End Google Tag Manager (noscript) -->
-
-    <script type="text/javascript">
-      (function (d, w, s) {
-        var widgetHash = '4uox021xc4vx3s6rj7oe',
-          gcw = d.createElement(s);
-        gcw.type = 'text/javascript';
-        gcw.async = true;
-        gcw.src = '//widgets.binotel.com/getcall/widgets/' + widgetHash + '.js';
-        var sn = d.getElementsByTagName(s)[0];
-        sn.parentNode.insertBefore(gcw, sn);
-      })(document, window, 'script');
-    </script>
 
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>

@@ -28,7 +28,6 @@ const services = [
   'Ремонт коробки передач та зчеплення',
   'Заміна мастил, фільтрів роботизованих КПП',
   'Заміна мастил, фільтрів DSG та Power Shift',
-  'Шиномонтаж та балансування',
   'Заміна витратних матеріалів та компонентів',
   'Детейлінг',
 ];
@@ -123,6 +122,12 @@ const BookingSection = () => {
         text: message,
         parse_mode: 'Markdown',
       });
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'booking_form_submit', service: formData.service });
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'booking_form_submit', { service: formData.service });
+      }
 
       setSuccessMessage("Дякуємо, що відправили заявку! Ми зв'яжемося з вами найближчим часом.");
       setFormData({ name: '', phone: '', car: '', service: '' });
