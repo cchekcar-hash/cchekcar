@@ -24,7 +24,7 @@ export function Hero({
   const { t } = useLang();
   return (
     <section className='hero relative overflow-hidden bg-ink-950'>
-      <img src={image} alt='' className='hero-photo absolute inset-0 h-full w-full object-cover' loading='eager' fetchPriority='high' />
+      <img src={image} alt='' className='hero-photo absolute inset-0 h-full w-full object-cover' loading='eager' {...{ fetchpriority: 'high' }} />
       <div className='hero-photo absolute inset-0 bg-gradient-to-b from-ink-950/70 via-ink-950/75 to-ink-900 md:bg-gradient-to-r md:from-ink-950/95 md:via-ink-950/70 md:to-ink-950/30' />
       <div className='relative mx-auto max-w-6xl px-4 pb-14 pt-10 md:pb-28 md:pt-24'>
         {children}

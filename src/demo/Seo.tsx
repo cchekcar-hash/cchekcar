@@ -70,7 +70,7 @@ export function localBusiness(lang: Lang) {
   };
 }
 
-type Props = {
+export type Props = {
   lang: Lang;
   bare: string;
   title: string;
@@ -78,7 +78,11 @@ type Props = {
   faq?: { q: string; a: string }[];
 };
 
+// Filled during build-time prerendering so the static HTML gets the same head tags
+export const ssrHead: { current: Props | null } = { current: null };
+
 export default function Seo({ lang, bare, title, description, faq }: Props) {
+  if (typeof window === 'undefined') ssrHead.current = { lang, bare, title, description, faq };
   useEffect(() => {
     document.title = title;
     document.documentElement.lang = lang === 'ru' ? 'ru' : 'uk';
