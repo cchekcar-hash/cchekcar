@@ -105,3 +105,16 @@ All colors MUST be HSL.
 :target {
   scroll-margin-top: 10vh;
 }
+
+/* Theme palette */
+:root {
+  --ink-950: 11 13 16; --ink-900: 17 20 24; --ink-800: 24 28 33; --ink-700: 33 38 45;
+  --ink-600: 44 50 59; --ink-400: 139 147 158; --ink-200: 213 217 223;
+  --fg: 255 255 255; --fire: 255 122 26; --fire-dark: 229 101 10;
+}
+/* Brand logo marquee */
+.brand-marquee { animation: brand-marquee 45s linear infinite; }
+@keyframes brand-marquee { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .brand-marquee { animation: none; } }
+
+
