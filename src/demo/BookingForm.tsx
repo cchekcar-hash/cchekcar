@@ -15,23 +15,12 @@ export default function BookingForm({ defaultService = '' }: { defaultService?: 
     if (!phoneOk) return;
     setStatus('sending');
     try {
-      const token = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
-      const chatId = import.meta.env.VITE_TELEGRAM_CHAT_ID;
-      if (!token || !chatId) throw new Error('Telegram is not configured');
-      const text = [
-        'Нова заявка з сайту:',
-        `👤 ${form.name || '—'}`,
-        `📱 ${form.phone}`,
-        `🚗 ${form.car || '—'}`,
-        `⚙️ ${form.service || '—'}`,
-        `🔗 ${window.location.pathname}`,
-      ].join('\n');
-      const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+      const res = await fetch('/api/booking', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ chat_id: chatId, text }),
+        body: JSON.stringify({ ...form, page: window.location.pathname }),
       });
-      if (!res.ok) throw new Error(`Telegram ${res.status}`);
+      if (!res.ok) throw new Error(`Booking ${res.status}`);
       track('booking_form_submit', { service: form.service, page: window.location.pathname });
       setStatus('sent');
       setForm({ name: '', phone: '', car: '', service: defaultService });
