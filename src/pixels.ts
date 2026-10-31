@@ -1,6 +1,6 @@
-// Meta (Facebook/Instagram) and TikTok pixels. They load only when their IDs are set
-// in the environment (VITE_META_PIXEL_ID, VITE_TIKTOK_PIXEL_ID), so ads on those
-// platforms can be connected later without changing the site.
+// Meta (Facebook/Instagram) and TikTok pixels. Pixel IDs are public (they appear in the page
+// source anyway); the environment (VITE_META_PIXEL_ID, VITE_TIKTOK_PIXEL_ID) can override them.
+// TikTok loads only once its ID is set.
 
 type Fbq = ((...args: unknown[]) => void) & { callMethod?: (...a: unknown[]) => void; queue: unknown[]; loaded?: boolean; version?: string; push?: unknown };
 type Ttq = Record<string, unknown> & { track: (...a: unknown[]) => void; page: () => void; load: (id: string) => void };
@@ -15,7 +15,7 @@ declare global {
   }
 }
 
-const META_ID = import.meta.env.VITE_META_PIXEL_ID as string | undefined;
+const META_ID = (import.meta.env.VITE_META_PIXEL_ID as string | undefined) || '1103547352274019';
 const TIKTOK_ID = import.meta.env.VITE_TIKTOK_PIXEL_ID as string | undefined;
 
 // Site events -> standard events of each platform
