@@ -52,3 +52,10 @@ for (const route of routes) {
   fs.writeFileSync(path.join(dist, file), page);
   console.log('prerendered', route, '→', file, head ? '' : '(no head)');
 }
+
+// Unknown addresses get a real 404 (not a copy of the home page), so Google doesn't index junk URLs; the app sends visitors home
+const notFound = template
+  .replace('</head>', '    <meta name="robots" content="noindex" />\n  </head>')
+  .replace(/<title>[\s\S]*?<\/title>/, '<title>Сторінку не знайдено | ChekCar</title>');
+fs.writeFileSync(path.join(dist, '404.html'), notFound);
+console.log('wrote 404.html');
