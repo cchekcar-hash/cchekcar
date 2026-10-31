@@ -195,7 +195,6 @@ export function ServicesGrid({ exclude }: { exclude?: string }) {
           )}
         </div>
         <p className='mt-6 text-sm text-ink-400'>{t(priceUi.note)}</p>
-        <p className='mt-2 text-sm text-ink-400'>{t(ui.notDo)}</p>
       </div>
     </section>
   );
