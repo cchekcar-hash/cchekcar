@@ -1,6 +1,5 @@
 // Meta (Facebook/Instagram) and TikTok pixels. Pixel IDs are public (they appear in the page
 // source anyway); the environment (VITE_META_PIXEL_ID, VITE_TIKTOK_PIXEL_ID) can override them.
-// TikTok loads only once its ID is set.
 
 type Fbq = ((...args: unknown[]) => void) & { callMethod?: (...a: unknown[]) => void; queue: unknown[]; loaded?: boolean; version?: string; push?: unknown };
 type Ttq = Record<string, unknown> & { track: (...a: unknown[]) => void; page: () => void; load: (id: string) => void };
@@ -16,7 +15,7 @@ declare global {
 }
 
 const META_ID = (import.meta.env.VITE_META_PIXEL_ID as string | undefined) || '1103547352274019';
-const TIKTOK_ID = import.meta.env.VITE_TIKTOK_PIXEL_ID as string | undefined;
+const TIKTOK_ID = (import.meta.env.VITE_TIKTOK_PIXEL_ID as string | undefined) || 'DBJ2NCBC77U38B7LS110';
 
 // Site events -> standard events of each platform
 const metaEvents: Record<string, string> = {
@@ -54,18 +53,44 @@ function initMeta(id: string) {
   fbq('init', id);
 }
 
+// TikTok's own base code (from Events Manager), unminified: queues calls until events.js loads
+/* eslint-disable @typescript-eslint/no-explicit-any -- mirrors TikTok's untyped snippet */
 function initTiktok(id: string) {
   if (window.ttq) return;
-  const queue: unknown[][] = [];
-  const methods = ['page', 'track', 'identify', 'instances', 'debug', 'on', 'off', 'once', 'ready', 'alias', 'group', 'enableCookie', 'disableCookie'];
-  const ttq = queue as unknown as Ttq;
-  methods.forEach((m) => {
-    ttq[m] = (...args: unknown[]) => queue.push([m, ...args]);
-  });
-  window.TiktokAnalyticsObject = 'ttq';
-  window.ttq = ttq;
-  loadScript(`https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=${encodeURIComponent(id)}&lib=ttq`);
+  const w = window as unknown as Record<string, any>;
+  w.TiktokAnalyticsObject = 'ttq';
+  const ttq: any = (w.ttq = w.ttq || []);
+  ttq.methods = ['page', 'track', 'identify', 'instances', 'debug', 'on', 'off', 'once', 'ready', 'alias', 'group', 'enableCookie', 'disableCookie', 'holdConsent', 'revokeConsent', 'grantConsent'];
+  ttq.setAndDefer = (target: any, method: string) => {
+    target[method] = (...args: unknown[]) => target.push([method, ...args]);
+  };
+  ttq.methods.forEach((m: string) => ttq.setAndDefer(ttq, m));
+  ttq.instance = (t: string) => {
+    const e = ttq._i[t] || [];
+    ttq.methods.forEach((m: string) => ttq.setAndDefer(e, m));
+    return e;
+  };
+  ttq.load = (e: string, n?: Record<string, unknown>) => {
+    const r = 'https://analytics.tiktok.com/i18n/pixel/events.js';
+    const o = n && (n as any).partner;
+    ttq._i = ttq._i || {};
+    ttq._i[e] = [];
+    ttq._i[e]._u = r;
+    ttq._t = ttq._t || {};
+    ttq._t[e] = +new Date();
+    ttq._o = ttq._o || {};
+    ttq._o[e] = n || {};
+    const s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = `${r}?sdkid=${e}&lib=ttq`;
+    const first = document.getElementsByTagName('script')[0];
+    first.parentNode!.insertBefore(s, first);
+    if (o) ttq._p = o;
+  };
+  ttq.load(id);
 }
+/* eslint-enable @typescript-eslint/no-explicit-any */
 
 export function initPixels() {
   if (META_ID) initMeta(META_ID);
