@@ -594,6 +594,12 @@ export const startPrice: Record<string, number | null> = {
   vykhlop: null,
 };
 
+// A confirmed price for one typical job, shown on pages without a general "від" price
+export const priceHint: Record<string, T> = {
+  'remont-dvyguna': { uk: 'Заміна ланцюга ГРМ BMW N20 від 10 000 грн', ru: 'Замена цепи ГРМ BMW N20 от 10 000 грн' },
+  okholodzhennya: { uk: 'Усунення течі антифризу від 2 000 грн', ru: 'Устранение течи антифриза от 2 000 грн' },
+};
+
 export const serviceGroups: { title: T; slugs: string[] }[] = [
   { title: { uk: 'Діагностика і ТО', ru: 'Диагностика и ТО' }, slugs: ['diagnostyka', 'zamina-masla'] },
   { title: { uk: 'Двигун і КПП', ru: 'Двигатель и КПП' }, slugs: ['remont-dvyguna', 'okholodzhennya', 'remont-kpp'] },
