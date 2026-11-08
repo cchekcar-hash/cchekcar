@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { CheckCircle2, AlertTriangle } from 'lucide-react';
-import { commonFaq, privacy, services, startPrice, ui, ui2 } from './content';
+import { commonFaq, priceHint, privacy, services, startPrice, ui, ui2 } from './content';
 import { useLang } from './useLang';
 import Layout from './Layout';
 import Seo from './Seo';
@@ -61,7 +61,7 @@ export function ServicePage() {
         description={t(service.metaDescription)}
         faq={faq}
       />
-      <Hero kicker={t(ui2.heroKicker)} title={t(service.h1)} text={t(service.intro)} price={startPrice[service.slug] ? price(service.slug) : undefined}>
+      <Hero kicker={t(ui2.heroKicker)} title={t(service.h1)} text={t(service.intro)} price={startPrice[service.slug] ? price(service.slug) : priceHint[service.slug] ? t(priceHint[service.slug]) : undefined}>
         <nav className='mb-4 text-sm text-ink-400'>
           <Link to={prefix || '/'} className='hover:text-fg'>
             ChekCar
@@ -97,6 +97,7 @@ export function ServicePage() {
         </div>
       </section>
 
+      <Gallery />
       <Reviews />
       <Steps />
       <FindUs />
