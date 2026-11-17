@@ -11,7 +11,7 @@ export function Hero({
   text,
   kicker,
   price,
-  image = '/assets/opt/photo7.webp',
+  image = '/assets/opt/hero.webp',
   children,
 }: {
   title: string;
