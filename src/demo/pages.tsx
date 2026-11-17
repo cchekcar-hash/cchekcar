@@ -102,7 +102,7 @@ export function ServicePage() {
       <Steps />
       <FindUs />
       <FaqBlock items={items} />
-      <ContactsAndBooking defaultService={t(service.name)} />
+      <ContactsAndBooking defaultService={service.general ? '' : t(service.name)} />
       <ServicesGrid exclude={service.slug} />
     </Layout>
   );

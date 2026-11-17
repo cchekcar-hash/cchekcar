@@ -68,7 +68,7 @@ export default function BookingForm({ defaultService = '' }: { defaultService?: 
         value={form.service}
         onChange={(e) => setForm({ ...form, service: e.target.value })}>
         <option value=''>{t(ui.service)}</option>
-        {services.map((s) => (
+        {services.filter((s) => !s.general).map((s) => (
           <option key={s.slug} value={t(s.name)}>
             {t(s.name)}
           </option>
