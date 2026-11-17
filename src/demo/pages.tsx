@@ -97,6 +97,18 @@ export function ServicePage() {
         </div>
       </section>
 
+      {service.blocks && service.blocks.length > 0 && (
+        <section className='pb-16'>
+          <div className='mx-auto grid max-w-6xl gap-4 px-4 md:grid-cols-2'>
+            {service.blocks.map((b) => (
+              <div key={b.h.uk} className='rounded-2xl border border-fg/5 bg-ink-800 p-5 md:p-6'>
+                <h2 className='text-xl font-bold text-fg'>{t(b.h)}</h2>
+                <p className='mt-2 leading-relaxed text-ink-200'>{t(b.p)}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
       <Gallery />
       <Reviews />
       <Steps />
