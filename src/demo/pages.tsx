@@ -109,6 +109,29 @@ export function ServicePage() {
           </div>
         </section>
       )}
+      {service.engines && (
+        <section className='pb-16'>
+          <div className='mx-auto max-w-6xl px-4'>
+            <SectionTitle title={`${t(ui.enginesTitle)}: ${service.engines.brand}`} sub={t(ui.enginesNote)} />
+            {service.engines.groups.map((g) => (
+              <div key={g.title.uk} className='mb-5'>
+                <h3 className='mb-3 font-bold text-ink-200'>{t(g.title)}</h3>
+                <div className='flex flex-wrap gap-2'>
+                  {g.items.map((m) => (
+                    <Link
+                      key={m}
+                      to={`${prefix}/remont-dvyguna`}
+                      title={`${service.engines!.brand} ${m}`}
+                      className='rounded-xl border border-fg/10 bg-ink-800 px-3 py-2 text-sm font-semibold text-fg hover:border-fire/60'>
+                      {service.engines!.brand} {m}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
       <Gallery />
       <Reviews />
       <Steps />

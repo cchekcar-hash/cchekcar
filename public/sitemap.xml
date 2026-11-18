@@ -33,6 +33,54 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://chekcar-sto.com.ua/bmw</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://chekcar-sto.com.ua/bmw"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://chekcar-sto.com.ua/ru/bmw"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://chekcar-sto.com.ua/bmw"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://chekcar-sto.com.ua/ru/bmw</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://chekcar-sto.com.ua/bmw"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://chekcar-sto.com.ua/ru/bmw"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://chekcar-sto.com.ua/bmw"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://chekcar-sto.com.ua/mercedes</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://chekcar-sto.com.ua/mercedes"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://chekcar-sto.com.ua/ru/mercedes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://chekcar-sto.com.ua/mercedes"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://chekcar-sto.com.ua/ru/mercedes</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://chekcar-sto.com.ua/mercedes"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://chekcar-sto.com.ua/ru/mercedes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://chekcar-sto.com.ua/mercedes"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://chekcar-sto.com.ua/vag</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://chekcar-sto.com.ua/vag"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://chekcar-sto.com.ua/ru/vag"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://chekcar-sto.com.ua/vag"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://chekcar-sto.com.ua/ru/vag</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://chekcar-sto.com.ua/vag"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://chekcar-sto.com.ua/ru/vag"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://chekcar-sto.com.ua/vag"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://chekcar-sto.com.ua/diagnostyka</loc>
     <xhtml:link rel="alternate" hreflang="uk" href="https://chekcar-sto.com.ua/diagnostyka"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://chekcar-sto.com.ua/ru/diagnostyka"/>
