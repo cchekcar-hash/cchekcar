@@ -256,4 +256,68 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://chekcar-sto.com.ua/grm</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://chekcar-sto.com.ua/grm"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://chekcar-sto.com.ua/ru/grm"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://chekcar-sto.com.ua/grm"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://chekcar-sto.com.ua/ru/grm</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://chekcar-sto.com.ua/grm"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://chekcar-sto.com.ua/ru/grm"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://chekcar-sto.com.ua/grm"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://chekcar-sto.com.ua/turbina</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://chekcar-sto.com.ua/turbina"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://chekcar-sto.com.ua/ru/turbina"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://chekcar-sto.com.ua/turbina"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://chekcar-sto.com.ua/ru/turbina</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://chekcar-sto.com.ua/turbina"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://chekcar-sto.com.ua/ru/turbina"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://chekcar-sto.com.ua/turbina"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://chekcar-sto.com.ua/dpf-egr</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://chekcar-sto.com.ua/dpf-egr"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://chekcar-sto.com.ua/ru/dpf-egr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://chekcar-sto.com.ua/dpf-egr"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://chekcar-sto.com.ua/ru/dpf-egr</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://chekcar-sto.com.ua/dpf-egr"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://chekcar-sto.com.ua/ru/dpf-egr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://chekcar-sto.com.ua/dpf-egr"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://chekcar-sto.com.ua/perevirka</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://chekcar-sto.com.ua/perevirka"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://chekcar-sto.com.ua/ru/perevirka"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://chekcar-sto.com.ua/perevirka"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://chekcar-sto.com.ua/ru/perevirka</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://chekcar-sto.com.ua/perevirka"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://chekcar-sto.com.ua/ru/perevirka"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://chekcar-sto.com.ua/perevirka"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
