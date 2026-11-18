@@ -219,9 +219,14 @@ export function Gallery() {
         {photos.map((src) => (
           <img
             key={src}
-            src={src}
+            src={src.replace('.webp', '-720.webp')}
+            srcSet={`${src.replace('.webp', '-720.webp')} 720w, ${src} 1100w`}
+            sizes='(min-width: 1024px) 360px, (min-width: 640px) 45vw, 78vw'
+            width={720}
+            height={900}
             alt='СТО ChekCar'
             loading='lazy'
+            decoding='async'
             className='aspect-[4/5] w-[78%] shrink-0 snap-center rounded-2xl object-cover sm:w-[45%] lg:w-[31%]'
           />
         ))}
@@ -405,7 +410,7 @@ export function FindUs() {
           <video
             className='aspect-video w-full'
             src='/assets/opt/route.mp4'
-            poster='/assets/opt/route-poster.jpg'
+            poster='/assets/opt/route-poster.webp'
             preload='none'
             controls
             playsInline
