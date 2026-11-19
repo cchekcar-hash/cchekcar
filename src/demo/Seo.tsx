@@ -43,7 +43,14 @@ export function localBusiness(lang: Lang) {
     name: 'СТО ChekCar',
     url: SITE,
     telephone: business.phone,
-    image: `${SITE}/assets/сто.jpg`,
+    image: `${SITE}/assets/opt/og.jpg`,
+    hasMap: 'https://maps.google.com/maps?cid=196069593027220257',
+    sameAs: [
+      'https://maps.google.com/maps?cid=196069593027220257',
+      'https://www.instagram.com/chekcar_kyiv',
+      'https://www.tiktok.com/@chekcar_kyiv',
+      'https://www.facebook.com/share/1CdahH69vy/',
+    ],
     address: {
       '@type': 'PostalAddress',
       streetAddress: business.address[lang],
