@@ -1065,7 +1065,8 @@ export const serviceGroups: { title: T; slugs: string[] }[] = [
   { title: { uk: 'Діагностика і ТО', ru: 'Диагностика и ТО' }, slugs: ['diagnostyka', 'perevirka', 'zamina-masla'] },
   { title: { uk: 'Двигун і КПП', ru: 'Двигатель и КПП' }, slugs: ['remont-dvyguna', 'kapremont-dvyguna', 'grm', 'turbina', 'dpf-egr', 'okholodzhennya', 'remont-kpp'] },
   { title: { uk: 'Ходова, рульове, гальма', ru: 'Ходовая, рулевое, тормоза' }, slugs: ['hodova', 'rulove', 'galma'] },
-  { title: { uk: 'Електрика і вихлоп', ru: 'Электрика и выхлоп' }, slugs: ['generator', 'vykhlop'] },
+  { title: { uk: 'Електрика', ru: 'Электрика' }, slugs: ['generator'] },
+  { title: { uk: 'Вихлоп', ru: 'Выхлоп' }, slugs: ['vykhlop'] },
 ];
 
 export const priceUi = {
@@ -1433,14 +1434,21 @@ export const symptomGroups: { title: T; items: { text: T; slug: string }[] }[] =
     ],
   },
   {
-    title: { uk: 'Електрика і вихлоп', ru: 'Электрика и выхлоп' },
+    title: { uk: 'Електрика', ru: 'Электрика' },
     items: [
       sym('Горить лампа акумулятора', 'Горит лампа аккумулятора', 'generator'),
       sym('Сідає акумулятор', 'Садится аккумулятор', 'generator'),
       sym('Свист з-під капота', 'Свист из-под капота', 'generator'),
+      sym('Стартер клацає або ледве крутить', 'Стартер щёлкает или еле крутит', 'generator'),
+    ],
+  },
+  {
+    title: { uk: 'Вихлоп', ru: 'Выхлоп' },
+    items: [
       sym('Гучний вихлоп', 'Громкий выхлоп', 'vykhlop'),
       sym('Запах вихлопу в салоні', 'Запах выхлопа в салоне', 'vykhlop'),
       sym('Брязкіт знизу авто', 'Дребезжание снизу авто', 'vykhlop'),
+      sym('Check Engine: помилка лямбда-зонда', 'Check Engine: ошибка лямбда-зонда', 'vykhlop'),
     ],
   },
 ];
