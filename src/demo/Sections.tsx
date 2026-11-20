@@ -145,7 +145,7 @@ export function usePrice() {
   const { t } = useLang();
   return (slug: string) => {
     const p = startPrice[slug];
-    return p ? `${t(priceUi.from)} ${p} ${t(priceUi.uah)}` : t(priceUi.byPhone);
+    return p ? `${t(priceUi.from)} ${p.toLocaleString("uk-UA").replace(/\s/g, " ")} ${t(priceUi.uah)}` : t(priceUi.byPhone);
   };
 }
 
