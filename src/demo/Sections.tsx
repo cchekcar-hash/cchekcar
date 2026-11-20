@@ -439,6 +439,11 @@ export function FaqBlock({ items }: { items: Faq[] }) {
                 <ChevronRight className='h-5 w-5 shrink-0 text-fire transition group-open:rotate-90' />
               </summary>
               <p className='mt-3 text-ink-400'>{t(f.a)}</p>
+              {f.link && (
+                <a href={f.link.href} className='mt-3 inline-flex items-center gap-1 font-bold text-fire underline underline-offset-4'>
+                  {t(f.link.label)} <ChevronRight className='h-4 w-4' />
+                </a>
+              )}
             </details>
           ))}
         </div>
