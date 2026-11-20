@@ -200,7 +200,7 @@ export function ServicesGrid({ exclude }: { exclude?: string }) {
   );
 }
 
-const photos = [7, 1, 3, 5, 9, 11, 2, 13, 4, 8].map((n) => `/assets/opt/photo${n}.webp`);
+const photos = ['/assets/opt/motul.webp', ...[7, 1, 3, 5, 9, 11, 2, 13, 4, 8].map((n) => `/assets/opt/photo${n}.webp`)];
 
 export function Gallery() {
   const { t } = useLang();
