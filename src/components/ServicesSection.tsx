@@ -20,7 +20,7 @@ const services = [
     icon: Settings,
     title: 'Заміна гальмівних колодок',
     description: 'Повна заміна з перевіркою гальмівної системи',
-    price: 'від 1200 грн',
+    price: 'від 600 грн',
     idCard: 'replacing-brake-pads',
   },
   {

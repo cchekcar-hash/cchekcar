@@ -27,7 +27,7 @@ export function HomePage() {
   return (
     <Layout>
       <Seo lang={lang} bare={bare} title={t(ui.homeMetaTitle)} description={t(ui.homeMetaDescription)} faq={faq} />
-      <Hero kicker={t(ui2.heroKicker)} title={t(ui2.heroTitle)} text={t(ui2.heroText)} />
+      <Hero kicker={t(ui2.heroKicker)} title={t(ui2.heroTitle)} text={t(ui2.heroText)} price={t({ uk: 'Діагностика від 500 грн', ru: 'Диагностика от 500 грн' })} />
       <Brands />
       <SymptomPicker />
       <ServicesGrid />
