@@ -97,6 +97,8 @@ export function ServicePage() {
         </div>
       </section>
 
+      <Gallery />
+
       {service.blocks && service.blocks.length > 0 && (
         <section className='pb-16'>
           <div className='mx-auto grid max-w-6xl gap-4 px-4 md:grid-cols-2'>
@@ -132,7 +134,6 @@ export function ServicePage() {
           </div>
         </section>
       )}
-      <Gallery />
       <Reviews />
       <Steps />
       <FindUs />
