@@ -61,7 +61,7 @@ export function ServicePage() {
         description={t(service.metaDescription)}
         faq={faq}
       />
-      <Hero kicker={t(ui2.heroKicker)} title={t(service.h1)} text={t(service.intro)} price={startPrice[service.slug] ? price(service.slug) : priceHint[service.slug] ? t(priceHint[service.slug]) : undefined}>
+      <Hero kicker={t(ui2.heroKicker)} title={t(service.h1)} text={t(service.intro)} price={priceHint[service.slug] ? t(priceHint[service.slug]) : startPrice[service.slug] ? price(service.slug) : undefined}>
         <nav className='mb-4 text-sm text-ink-400'>
           <Link to={prefix || '/'} className='hover:text-fg'>
             ChekCar
