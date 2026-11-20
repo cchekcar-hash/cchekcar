@@ -1,3 +1,6 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/vidguk", "destination": "https://search.google.com/local/writereview?placeid=ChIJ5QYl2XnN1EARIZOki0GUuAI", "permanent": false }
+  ]
 }
