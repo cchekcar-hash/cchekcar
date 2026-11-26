@@ -1,6 +1,30 @@
 {
   "cleanUrls": true,
   "redirects": [
-    { "source": "/vidguk", "destination": "https://search.google.com/local/writereview?placeid=ChIJ5QYl2XnN1EARIZOki0GUuAI", "permanent": false }
+    {
+      "source": "/vidguk",
+      "destination": "https://search.google.com/local/writereview?placeid=ChIJ5QYl2XnN1EARIZOki0GUuAI",
+      "permanent": false
+    }
+  ],
+  "headers": [
+    {
+      "source": "/fonts/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000"
+        }
+      ]
+    }
   ]
 }

@@ -353,6 +353,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://chekcar-sto.com.ua/chystka-forsunok</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://chekcar-sto.com.ua/chystka-forsunok"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://chekcar-sto.com.ua/ru/chystka-forsunok"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://chekcar-sto.com.ua/chystka-forsunok"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://chekcar-sto.com.ua/ru/chystka-forsunok</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://chekcar-sto.com.ua/chystka-forsunok"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://chekcar-sto.com.ua/ru/chystka-forsunok"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://chekcar-sto.com.ua/chystka-forsunok"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://chekcar-sto.com.ua/salnyky</loc>
     <xhtml:link rel="alternate" hreflang="uk" href="https://chekcar-sto.com.ua/salnyky"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://chekcar-sto.com.ua/ru/salnyky"/>
